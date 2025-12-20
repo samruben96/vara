@@ -1,4 +1,7 @@
+const { tailwindColors } = require('../../lib/colors');
+
 module.exports = {
+  // === TEMPLATE COLORS (keep for backward compatibility) ===
   white: '#ffffff',
   black: '#000000',
   charcoal: {
@@ -75,4 +78,7 @@ module.exports = {
     800: '#991B1B',
     900: '#7F1D1D',
   },
+
+  // === VARA BRAND COLORS ===
+  ...tailwindColors,
 };

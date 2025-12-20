@@ -31,8 +31,22 @@ yarn-error.*
 
 # local env files
 .env*.local
+.env.development
+.env.staging
+.env.production
+
+# Supabase local development
+/supabase/.temp/
 
 # typescript
 *.tsbuildinfo
 
 app-example
+
+# iOS
+ios/Pods/
+ios/build/
+ios/.xcode.env.local
+
+# Test coverage
+coverage/

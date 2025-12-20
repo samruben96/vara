@@ -30,6 +30,8 @@ export default defineConfig([
     'docs/',
     'cli/',
     'expo-env.d.ts',
+    '_bmad/',
+    '_bmad-output/',
   ]),
   expoConfig,
   eslintPluginPrettierRecommended,

@@ -1,0 +1,186 @@
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic not yet started
+#   - in-progress: Epic actively being worked on
+#   - done: All stories in epic completed
+#
+# Epic Status Transitions:
+#   - backlog → in-progress: Automatically when first story is created (via create-story)
+#   - in-progress → done: Manually when all stories reach 'done' status
+#
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - ready-for-dev: Story file created in stories folder
+#   - in-progress: Developer actively working on implementation
+#   - review: Ready for code review (via Dev's code-review workflow)
+#   - done: Story completed
+#
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - done: Retrospective has been completed
+#
+# WORKFLOW NOTES:
+# ===============
+# - Epic transitions to 'in-progress' automatically when first story is created
+# - Stories can be worked in parallel if team capacity allows
+# - SM typically creates next story after previous one is 'done' to incorporate learnings
+# - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
+
+generated: 2025-12-17
+project: vara
+project_key: vara-app
+tracking_system: file-system
+story_location: _bmad-output/implementation-artifacts
+
+development_status:
+  # Epic 1: Foundation & Project Setup
+  epic-1: in-progress
+  1-1-initialize-project-with-obytes-template: done
+  1-2-set-up-supabase-project-local-development: done
+  1-3-implement-design-system-tokens: done
+  1-4-create-core-database-schema-rls-foundation: done
+  1-5-configure-authentication-foundation: done
+  1-6-set-up-observability-ci-cd: review
+  epic-1-retrospective: optional
+
+  # Epic 2: App Shell, Screens & Navigation
+  epic-2: backlog
+  2-1-implement-tab-navigation-app-layout: backlog
+  2-2-create-auth-flow-screens-shell: backlog
+  2-3-create-onboarding-flow-screens-shell: backlog
+  2-4-create-home-screen-with-statuscircle-component: backlog
+  2-5-create-monitor-screen-shell: backlog
+  2-6-create-alerts-screen-shell: backlog
+  2-7-create-settings-screen-shell: backlog
+  2-8-create-threat-detail-screen-shell: backlog
+  2-9-create-scan-progress-screen-shell: backlog
+  2-10-create-ai-assistant-screen-shell: backlog
+  2-11-create-subscription-screen-shell: backlog
+  2-12-build-status-feedback-components: backlog
+  2-13-build-content-display-components: backlog
+  2-14-build-interactive-utility-components: backlog
+  epic-2-retrospective: optional
+
+  # Epic 3: User Authentication & Account
+  epic-3: backlog
+  3-1-implement-email-password-registration: backlog
+  3-2-implement-email-verification-flow: backlog
+  3-3-implement-email-password-login: backlog
+  3-4-implement-google-oauth-login: backlog
+  3-5-implement-apple-sign-in: backlog
+  3-6-implement-password-reset-flow: backlog
+  3-7-implement-biometric-authentication: backlog
+  3-8-implement-account-deletion: backlog
+  3-9-implement-two-factor-authentication: backlog
+  epic-3-retrospective: optional
+
+  # Epic 4: Onboarding & Data Collection
+  epic-4: backlog
+  4-1-implement-welcome-value-proposition-screen: backlog
+  4-2-implement-permissions-request-screen: backlog
+  4-3-implement-name-profile-input: backlog
+  4-4-implement-photo-upload: backlog
+  4-5-implement-social-media-handle-input: backlog
+  4-6-implement-email-phone-input-for-breach-monitoring: backlog
+  4-7-implement-first-scan-initiation: backlog
+  epic-4-retrospective: optional
+
+  # Epic 5: Dashboard & Protection Status
+  epic-5: backlog
+  5-1-implement-real-protection-status-display: backlog
+  5-2-implement-dashboard-summary-cards: backlog
+  5-3-implement-recent-findings-display: backlog
+  5-4-implement-action-items-display: backlog
+  5-5-implement-threat-history-view: backlog
+  epic-5-retrospective: optional
+
+  # Epic 6: Scanning Engine & Real-Time Progress
+  epic-6: backlog
+  6-1-create-scan-infrastructure-database-schema: backlog
+  6-2-implement-scan-initiation-edge-function: backlog
+  6-3-implement-inngest-scan-workflow: backlog
+  6-4-implement-real-time-scan-progress-display: backlog
+  6-5-integrate-have-i-been-pwned-api: backlog
+  6-6-integrate-tineye-reverse-image-search: backlog
+  6-7-integrate-google-cloud-vision-image-search: backlog
+  6-8-implement-deepfake-detection-analysis-premium: backlog
+  6-9-implement-dark-web-monitoring-pro: backlog
+  6-10-implement-basic-impersonation-detection: backlog
+  6-11-implement-scan-results-processing: backlog
+  6-12-implement-manual-re-scan-capability: backlog
+  6-13-implement-background-monitoring-premium: backlog
+  epic-6-retrospective: optional
+
+  # Epic 7: Threat Detection & Classification
+  epic-7: backlog
+  7-1-create-threats-database-schema: backlog
+  7-2-implement-threat-classification-logic: backlog
+  7-3-implement-threat-detail-view: backlog
+  7-4-implement-false-positive-marking: backlog
+  7-5-implement-threat-status-updates: backlog
+  epic-7-retrospective: optional
+
+  # Epic 8: Alerts & Notifications
+  epic-8: backlog
+  8-1-implement-push-notification-infrastructure: backlog
+  8-2-implement-threat-alert-notifications: backlog
+  8-3-implement-in-app-notification-center: backlog
+  8-4-implement-email-notifications: backlog
+  8-5-implement-notification-preferences: backlog
+  8-6-implement-alert-aggregation: backlog
+  8-7-implement-sms-notification-option: backlog
+  epic-8-retrospective: optional
+
+  # Epic 9: Remediation & Actions
+  epic-9: backlog
+  9-1-create-remediation-content-database: backlog
+  9-2-implement-guided-remediation-steps: backlog
+  9-3-implement-platform-reporting-links-premium: backlog
+  9-4-implement-evidence-capture-premium: backlog
+  9-5-implement-evidence-export-pro: backlog
+  9-6-implement-action-completion-tracking: backlog
+  9-7-implement-legal-resource-links: backlog
+  epic-9-retrospective: optional
+
+  # Epic 10: AI Support Assistant
+  epic-10: backlog
+  10-1-implement-chat-interface: backlog
+  10-2-implement-quick-actions: backlog
+  10-3-integrate-llm-for-responses: backlog
+  10-4-implement-threat-explanation: backlog
+  10-5-implement-action-guidance: backlog
+  10-6-implement-crisis-resource-escalation: backlog
+  10-7-implement-conversation-history: backlog
+  10-8-implement-handoff-to-human-support: backlog
+  epic-10-retrospective: optional
+
+  # Epic 11: Support Resources & Help Center
+  epic-11: backlog
+  11-1-implement-help-center-structure: backlog
+  11-2-implement-faq-content: backlog
+  11-3-implement-safety-guides: backlog
+  11-4-implement-crisis-hotlines: backlog
+  11-5-implement-in-app-tutorials: backlog
+  epic-11-retrospective: optional
+
+  # Epic 12: Settings & Preferences
+  epic-12: backlog
+  12-1-implement-profile-management: backlog
+  12-2-implement-monitored-items-management: backlog
+  12-3-implement-privacy-settings: backlog
+  12-4-implement-data-export: backlog
+  12-5-implement-subscription-management: backlog
+  epic-12-retrospective: optional
+
+  # Epic 13: Subscription & Payments
+  epic-13: backlog
+  13-1-integrate-revenuecat-sdk: backlog
+  13-2-implement-free-trial-flow: backlog
+  13-3-implement-subscription-purchase: backlog
+  13-4-implement-tier-feature-gating: backlog
+  13-5-implement-upgrade-downgrade-flow: backlog
+  13-6-implement-trial-expiration-handling: backlog
+  13-7-implement-subscription-webhook-handler: backlog
+  13-8-implement-billing-history: backlog
+  epic-13-retrospective: optional

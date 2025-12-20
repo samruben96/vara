@@ -9,7 +9,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        inter: ['Inter'],
+        inter: ['Inter'], // Keep for backward compatibility
+        jakarta: ['PlusJakartaSans-Regular'], // vara primary font
+        'jakarta-medium': ['PlusJakartaSans-Medium'],
+        'jakarta-semibold': ['PlusJakartaSans-SemiBold'],
       },
       colors,
     },
