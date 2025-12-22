@@ -11,9 +11,14 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 
-import { CheckmarkCircle } from '@/components/ui/icons';
+import {
+  CheckmarkCircle,
+  ExclamationCircle,
+  LoadingDots,
+  WarningTriangle,
+} from '@/components/ui/icons';
 import { Text } from '@/components/ui/text';
-import { brandColors, statusColors } from '@/lib/design-system';
+import { brandColors, glowEffects, statusColors } from '@/lib/design-system';
 
 export type StatusType = 'protected' | 'attention' | 'critical' | 'scanning';
 export type StatusCircleSize = 'sm' | 'md' | 'lg';
@@ -58,7 +63,42 @@ const ACCESSIBILITY_LABELS: Record<StatusType, string> = {
   scanning: 'Protection status: Scanning in progress',
 };
 
-function useGlowAnimation() {
+// Get glow spread values from design system
+const getGlowConfig = (status: StatusType) => {
+  const glowStatus = status === 'scanning' ? 'protected' : status;
+  const glow = glowEffects[glowStatus];
+  return {
+    innerSpread: glow.inner.spread,
+    innerOpacity: glow.inner.opacity,
+    outerSpread: glow.outer.spread,
+    outerOpacity: glow.outer.opacity,
+  };
+};
+
+// Render the appropriate icon based on status
+const StatusIcon = ({
+  status,
+  size,
+  color,
+}: {
+  status: StatusType;
+  size: number;
+  color: string;
+}) => {
+  switch (status) {
+    case 'protected':
+      return <CheckmarkCircle color={color} size={size} />;
+    case 'attention':
+      return <ExclamationCircle color={color} size={size} />;
+    case 'critical':
+      return <WarningTriangle color={color} size={size} />;
+    case 'scanning':
+      return <LoadingDots color={color} size={size} />;
+  }
+};
+
+function useGlowAnimation(status: StatusType) {
+  const glowConfig = getGlowConfig(status);
   const reducedMotion = useReducedMotion();
   const glowScale = useSharedValue(1);
   const glowOpacity = useSharedValue(0.3);
@@ -66,7 +106,7 @@ function useGlowAnimation() {
   useEffect(() => {
     if (reducedMotion) {
       glowScale.value = 1;
-      glowOpacity.value = 0.3;
+      glowOpacity.value = glowConfig.outerOpacity;
       return;
     }
     glowScale.value = withRepeat(
@@ -80,14 +120,20 @@ function useGlowAnimation() {
     );
     glowOpacity.value = withRepeat(
       withSequence(
-        withTiming(0.5, { duration: 1000, easing: Easing.inOut(Easing.ease) }),
-        withTiming(0.3, { duration: 1000, easing: Easing.inOut(Easing.ease) }),
-        withTiming(0.3, { duration: 2000 })
+        withTiming(glowConfig.innerOpacity, {
+          duration: 1000,
+          easing: Easing.inOut(Easing.ease),
+        }),
+        withTiming(glowConfig.outerOpacity, {
+          duration: 1000,
+          easing: Easing.inOut(Easing.ease),
+        }),
+        withTiming(glowConfig.outerOpacity, { duration: 2000 })
       ),
       -1,
       false
     );
-  }, [reducedMotion, glowScale, glowOpacity]);
+  }, [reducedMotion, glowScale, glowOpacity, glowConfig]);
 
   const outerStyle = useAnimatedStyle(() => ({
     transform: [{ scale: glowScale.value }],
@@ -96,13 +142,16 @@ function useGlowAnimation() {
 
   const innerStyle = useAnimatedStyle(() => ({
     transform: [{ scale: 1 + (glowScale.value - 1) * 0.5 }],
-    opacity: 0.5 + (glowOpacity.value - 0.3) * 0.5,
+    opacity:
+      glowConfig.innerOpacity +
+      (glowOpacity.value - glowConfig.outerOpacity) * 0.5,
   }));
 
-  return { outerStyle, innerStyle };
+  return { outerStyle, innerStyle, glowConfig };
 }
 
 interface CircleContentProps {
+  status: StatusType;
   circleSize: number;
   iconSize: number;
   statusColor: string;
@@ -110,9 +159,11 @@ interface CircleContentProps {
   showLabel: boolean;
   outerStyle: AnimatedStyle<StyleProps>;
   innerStyle: AnimatedStyle<StyleProps>;
+  glowConfig: ReturnType<typeof getGlowConfig>;
 }
 
 function CircleContent({
+  status,
   circleSize,
   iconSize,
   statusColor,
@@ -120,6 +171,7 @@ function CircleContent({
   showLabel,
   outerStyle,
   innerStyle,
+  glowConfig,
 }: CircleContentProps) {
   return (
     <View style={styles.container}>
@@ -133,7 +185,7 @@ function CircleContent({
           style={[
             styles.glowLayer,
             styles.outerGlow,
-            getGlowDimensions(circleSize, 80, statusColor),
+            getGlowDimensions(circleSize, glowConfig.outerSpread, statusColor),
             outerStyle,
           ]}
         />
@@ -141,7 +193,7 @@ function CircleContent({
           style={[
             styles.glowLayer,
             styles.innerGlow,
-            getGlowDimensions(circleSize, 40, statusColor),
+            getGlowDimensions(circleSize, glowConfig.innerSpread, statusColor),
             innerStyle,
           ]}
         />
@@ -151,7 +203,11 @@ function CircleContent({
             getCircleDimensions(circleSize, statusColor),
           ]}
         >
-          <CheckmarkCircle color={brandColors.charcoal} size={iconSize} />
+          <StatusIcon
+            status={status}
+            size={iconSize}
+            color={brandColors.charcoal}
+          />
         </View>
       </View>
       {showLabel && (
@@ -183,7 +239,7 @@ export function StatusCircle({
   showLabel = true,
   onPress,
 }: StatusCircleProps) {
-  const { outerStyle, innerStyle } = useGlowAnimation();
+  const { outerStyle, innerStyle, glowConfig } = useGlowAnimation(status);
   const circleSize = SIZE_MAP[size];
   const iconSize = ICON_SIZE_MAP[size];
   const statusColor = STATUS_COLORS[status];
@@ -192,6 +248,7 @@ export function StatusCircle({
 
   const content = (
     <CircleContent
+      status={status}
       circleSize={circleSize}
       iconSize={iconSize}
       statusColor={statusColor}
@@ -199,6 +256,7 @@ export function StatusCircle({
       showLabel={showLabel}
       outerStyle={outerStyle}
       innerStyle={innerStyle}
+      glowConfig={glowConfig}
     />
   );
 

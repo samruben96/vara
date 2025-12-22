@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dimensions, StyleSheet, View } from 'react-native';
+import { StyleSheet, useWindowDimensions, View } from 'react-native';
 
 import { Alerts, Gallery, Monitor, User } from '@/components/ui/icons';
 import { darkColors, layout, spacing } from '@/lib/design-system';
@@ -7,19 +7,15 @@ import { darkColors, layout, spacing } from '@/lib/design-system';
 import { StatusCircle } from './status-circle';
 import { SummaryCard } from './summary-card';
 
-const { height: SCREEN_HEIGHT } = Dimensions.get('window');
-const HERO_HEIGHT = SCREEN_HEIGHT * 0.4;
+const HERO_HEIGHT_RATIO = 0.4;
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface HomeContentProps {
-  // Future props for dynamic data
-}
-
-export function HomeContent(_props: HomeContentProps) {
+export function HomeContent() {
+  const { height } = useWindowDimensions();
+  const heroHeight = height * HERO_HEIGHT_RATIO;
   return (
     <View style={styles.container}>
       {/* Hero Section - Top 40% */}
-      <View style={styles.heroSection}>
+      <View style={[styles.heroSection, { height: heroHeight }]}>
         <StatusCircle status="protected" size="lg" showLabel />
       </View>
 
@@ -62,7 +58,6 @@ const styles = StyleSheet.create({
     backgroundColor: darkColors.background.primary,
   },
   heroSection: {
-    height: HERO_HEIGHT,
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: layout.screenMargin,

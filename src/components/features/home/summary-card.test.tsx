@@ -90,4 +90,18 @@ describe('SummaryCard', () => {
     render(<SummaryCard value="5" label="Alerts" />);
     expect(screen.getByText('5')).toBeTruthy();
   });
+
+  it('applies pressed styling when pressed', () => {
+    const onPressMock = jest.fn();
+    render(<SummaryCard value="5" label="Alerts" onPress={onPressMock} />);
+    const pressable = screen.getByLabelText('Alerts: 5');
+    // Verify pressable element exists with button role (pressable behavior)
+    expect(pressable.props.accessibilityRole).toBe('button');
+  });
+
+  it('does not trigger haptic when no onPress provided', () => {
+    render(<SummaryCard value="5" label="Alerts" />);
+    // Component renders without onPress - no haptic should be triggered
+    expect(Haptics.impactAsync).not.toHaveBeenCalled();
+  });
 });

@@ -1,4 +1,3 @@
-export type { HomeContentProps } from './home-content';
 export { HomeContent } from './home-content';
 export type {
   StatusCircleProps,
