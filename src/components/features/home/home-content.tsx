@@ -2,10 +2,9 @@ import React from 'react';
 import { StyleSheet, useWindowDimensions, View } from 'react-native';
 
 import { Alerts, Gallery, Monitor, User } from '@/components/ui/icons';
+import { StatusCircle } from '@/components/ui/status-circle';
+import { SummaryCard } from '@/components/ui/summary-card';
 import { darkColors, layout, spacing } from '@/lib/design-system';
-
-import { StatusCircle } from './status-circle';
-import { SummaryCard } from './summary-card';
 
 const HERO_HEIGHT_RATIO = 0.4;
 

@@ -45,21 +45,17 @@ development_status:
   epic-1-retrospective: done
 
   # Epic 2: App Shell, Screens & Navigation
+  # CONSOLIDATED: 14 stories → 8 stories (2025-12-22)
+  # Merges: 2.12-2.14→2.5, old 2.5-2.7→2.6, old 2.8-2.9→2.7, old 2.10-2.11→2.8
   epic-2: in-progress
   2-1-implement-tab-navigation-app-layout: done
   2-2-create-auth-flow-screens-shell: done
   2-3-create-onboarding-flow-screens-shell: done
   2-4-create-home-screen-with-statuscircle-component: done
-  2-5-create-monitor-screen-shell: backlog
-  2-6-create-alerts-screen-shell: backlog
-  2-7-create-settings-screen-shell: backlog
-  2-8-create-threat-detail-screen-shell: backlog
-  2-9-create-scan-progress-screen-shell: backlog
-  2-10-create-ai-assistant-screen-shell: backlog
-  2-11-create-subscription-screen-shell: backlog
-  2-12-build-status-feedback-components: backlog
-  2-13-build-content-display-components: backlog
-  2-14-build-interactive-utility-components: backlog
+  2-5-build-core-ui-components: done  # merged from 2.12, 2.13, 2.14
+  2-6-create-main-tab-screens-shell: backlog  # merged from old 2.5, 2.6, 2.7
+  2-7-create-detail-progress-screens-shell: backlog  # merged from old 2.8, 2.9
+  2-8-create-assistant-subscription-screens-shell: backlog  # merged from old 2.10, 2.11
   epic-2-retrospective: optional
 
   # Epic 3: User Authentication & Account

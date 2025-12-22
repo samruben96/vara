@@ -10,7 +10,7 @@ project_name: 'vara'
 user_name: 'Samruben'
 date: '2024-12-17'
 totalEpics: 13
-totalStories: 99
+totalStories: 93
 validationStatus: 'complete'
 frCoverage: '86/86 (100%)'
 nfrCoverage: '31/31'
@@ -20,6 +20,7 @@ readyForDevelopment: true
 corrections:
   - 'Added monitored_items table to Story 1.4'
   - 'Split Story 2.12 into 2.12/2.13/2.14'
+  - 'Consolidated Epic 2 from 14 to 8 stories: merged 2.12-2.14→2.5 (Core UI Components), 2.5-2.7→2.6 (Main Tab Screens), 2.8-2.9→2.7 (Detail & Progress Screens), 2.10-2.11→2.8 (Assistant & Subscription Screens)'
   - 'Split Story 3.4 into 3.4 (Google) / 3.5 (Apple)'
   - 'Split Story 6.6 into 6.6 (TinEye) / 6.7 (Google Vision)'
   - 'Added Story 6.8: Deepfake Detection'
@@ -721,13 +722,64 @@ So that **I can quickly confirm I'm protected**.
 
 ---
 
-### Story 2.5: Create Monitor Screen (Shell)
+### Story 2.5: Build Core UI Components
 
-As a **user**,
-I want **to see what items are being monitored**,
-So that **I can review my protected photos and accounts**.
+As a **developer**,
+I want **all core UI components built**,
+So that **screens can use consistent, reusable components for status, content, and interactions**.
 
 **Acceptance Criteria:**
+
+**Status & Feedback Components (formerly 2.12):**
+
+**Given** the design system tokens exist
+**When** I build the status components
+**Then** `StatusCircle` component exists with protected/attention/critical/scanning variants
+**And** StatusCircle implements glow pulse animation (subtle pulse every 4 seconds)
+**And** StatusCircle respects prefers-reduced-motion setting (UX-22)
+**And** `SeverityBadge` component exists with low/medium/high/critical variants using correct colors
+**And** `ProgressRing` component exists with percentage display and smooth animation
+
+**Content Display Components (formerly 2.13):**
+
+**Given** the design system tokens exist
+**When** I build the content components
+**Then** `SummaryCard` component exists with value, label, icon, and optional status indicator
+**And** `AlertCard` component exists with title, description, severity badge, timestamp, and status
+**And** `ContentBlur` component exists with configurable blur amount (default 20px)
+**And** ContentBlur implements tap-to-reveal with consent callback
+**And** ContentBlur animation transitions blur 20px → 0px over 200ms (UX-21)
+**And** `ImageThumbnail` component exists with status indicator overlay
+
+**Interactive & Utility Components (formerly 2.14):**
+
+**Given** the design system tokens exist
+**When** I build the interactive components
+**Then** `ActionButton` component exists with primary/secondary/danger/ghost variants
+**And** ActionButton supports loading state and disabled state
+**And** `EmptyState` component exists with icon, title, description, and optional action button
+**And** `Skeleton` component exists for loading states with shimmer animation
+**And** `BottomSheet` modal component exists with drag-to-dismiss
+**And** all interactive components provide haptic feedback on press (UX-16)
+
+**Shared Requirements:**
+
+**And** all components meet WCAG 2.1 AA color contrast requirements
+**And** all components meet WCAG 2.1 AA accessibility requirements
+**And** all touch targets are minimum 44x44pt
+**And** components are exported from `src/components/ui/index.ts`
+
+---
+
+### Story 2.6: Create Main Tab Screens (Shell)
+
+As a **user**,
+I want **to see the Monitor, Alerts, and Settings screens**,
+So that **I can navigate and understand all main app sections**.
+
+**Acceptance Criteria:**
+
+**Monitor Screen (formerly 2.5):**
 
 **Given** I am on the Monitor tab
 **When** the screen loads
@@ -736,17 +788,8 @@ So that **I can review my protected photos and accounts**.
 **And** each photo thumbnail shows a small status indicator
 **And** there is an "Add" button to add more photos or accounts
 **And** tapping a photo navigates to image detail screen
-**And** the screen follows vara's design system
 
----
-
-### Story 2.6: Create Alerts Screen (Shell)
-
-As a **user**,
-I want **to see my threat alerts**,
-So that **I can review and act on detected issues**.
-
-**Acceptance Criteria:**
+**Alerts Screen (formerly 2.6):**
 
 **Given** I am on the Alerts tab
 **When** the screen loads
@@ -755,17 +798,8 @@ So that **I can review and act on detected issues**.
 **And** severity badges use correct colors (mint=low, coral=medium, red=critical)
 **And** tapping an alert navigates to the threat detail screen
 **And** there is an empty state when no alerts exist
-**And** the screen follows vara's design system
 
----
-
-### Story 2.7: Create Settings Screen (Shell)
-
-As a **user**,
-I want **to access app settings**,
-So that **I can manage my account and preferences**.
-
-**Acceptance Criteria:**
+**Settings Screen (formerly 2.7):**
 
 **Given** I am on the Settings tab
 **When** the screen loads
@@ -773,17 +807,22 @@ So that **I can manage my account and preferences**.
 **And** each settings row is tappable and navigates to the appropriate screen
 **And** I see my profile summary at the top (name, email, subscription tier)
 **And** there is a "Sign Out" option
-**And** the screen follows vara's design system
+
+**Shared Requirements:**
+
+**And** all screens follow vara's design system
 
 ---
 
-### Story 2.8: Create Threat Detail Screen (Shell)
+### Story 2.7: Create Detail & Progress Screens (Shell)
 
 As a **user**,
-I want **to see detailed information about a detected threat**,
-So that **I can understand what was found and what to do**.
+I want **to see threat details and scan progress screens**,
+So that **I can understand threats and monitor scan status**.
 
 **Acceptance Criteria:**
+
+**Threat Detail Screen (formerly 2.8):**
 
 **Given** I tapped on an alert from the Alerts screen
 **When** the threat detail screen loads
@@ -796,15 +835,7 @@ So that **I can understand what was found and what to do**.
 **And** there is a back button to return to alerts
 **And** the screen follows trauma-informed design principles
 
----
-
-### Story 2.9: Create Scan Progress Screen (Shell)
-
-As a **user**,
-I want **to see scan progress when a scan is running**,
-So that **I know what's being checked and how long it will take**.
-
-**Acceptance Criteria:**
+**Scan Progress Screen (formerly 2.9):**
 
 **Given** a scan is initiated
 **When** I view the scan progress screen
@@ -814,17 +845,22 @@ So that **I know what's being checked and how long it will take**.
 **And** I see estimated time remaining
 **And** the UI updates in real-time (mock updates for now)
 **And** I can see results as they come in
-**And** the screen follows vara's design system
+
+**Shared Requirements:**
+
+**And** all screens follow vara's design system
 
 ---
 
-### Story 2.10: Create AI Assistant Screen (Shell)
+### Story 2.8: Create Assistant & Subscription Screens (Shell)
 
 As a **user**,
-I want **to access the AI support assistant**,
-So that **I can get help understanding threats and taking action**.
+I want **to access the AI assistant and subscription options**,
+So that **I can get help and choose my protection level**.
 
 **Acceptance Criteria:**
+
+**AI Assistant Screen (formerly 2.10):**
 
 **Given** I navigate to the AI Assistant
 **When** the screen loads
@@ -833,17 +869,8 @@ So that **I can get help understanding threats and taking action**.
 **And** I see quick action suggestions (e.g., "Explain this threat", "What should I do?")
 **And** mock messages demonstrate the conversation flow
 **And** the interface handles keyboard properly
-**And** the screen follows vara's design system
 
----
-
-### Story 2.11: Create Subscription Screen (Shell)
-
-As a **user**,
-I want **to see subscription plan options**,
-So that **I can choose the right protection level**.
-
-**Acceptance Criteria:**
+**Subscription Screen (formerly 2.11):**
 
 **Given** I navigate to subscription management
 **When** the screen loads
@@ -852,70 +879,10 @@ So that **I can choose the right protection level**.
 **And** the current plan is highlighted
 **And** I can toggle between monthly and annual pricing
 **And** tapping a plan initiates the upgrade flow (mock for now)
-**And** the screen follows vara's design system
 
----
+**Shared Requirements:**
 
-### Story 2.12: Build Status & Feedback Components
-
-As a **developer**,
-I want **status indication and feedback components built**,
-So that **users can understand protection status and progress at a glance**.
-
-**Acceptance Criteria:**
-
-**Given** the design system tokens exist
-**When** I build the status components
-**Then** `StatusCircle` component exists with protected/attention/critical/scanning variants
-**And** StatusCircle implements glow pulse animation (subtle pulse every 4 seconds)
-**And** StatusCircle respects prefers-reduced-motion setting (UX-22)
-**And** `SeverityBadge` component exists with low/medium/high/critical variants using correct colors
-**And** `ProgressRing` component exists with percentage display and smooth animation
-**And** all components meet WCAG 2.1 AA color contrast requirements
-**And** all touch targets are minimum 44x44pt
-**And** components are exported from `src/components/ui/index.ts`
-
----
-
-### Story 2.13: Build Content Display Components
-
-As a **developer**,
-I want **content display components built**,
-So that **information is presented consistently across the app**.
-
-**Acceptance Criteria:**
-
-**Given** the design system tokens exist
-**When** I build the content components
-**Then** `SummaryCard` component exists with value, label, icon, and optional status indicator
-**And** `AlertCard` component exists with title, description, severity badge, timestamp, and status
-**And** `ContentBlur` component exists with configurable blur amount (default 20px)
-**And** ContentBlur implements tap-to-reveal with consent callback
-**And** ContentBlur animation transitions blur 20px → 0px over 200ms (UX-21)
-**And** `ImageThumbnail` component exists with status indicator overlay
-**And** all components meet WCAG 2.1 AA accessibility requirements
-**And** components are exported from `src/components/ui/index.ts`
-
----
-
-### Story 2.14: Build Interactive & Utility Components
-
-As a **developer**,
-I want **interactive and utility components built**,
-So that **common UI patterns are reusable across screens**.
-
-**Acceptance Criteria:**
-
-**Given** the design system tokens exist
-**When** I build the interactive components
-**Then** `ActionButton` component exists with primary/secondary/danger/ghost variants
-**And** ActionButton supports loading state and disabled state
-**And** `EmptyState` component exists with icon, title, description, and optional action button
-**And** `Skeleton` component exists for loading states with shimmer animation
-**And** `BottomSheet` modal component exists with drag-to-dismiss
-**And** all interactive components provide haptic feedback on press (UX-16)
-**And** all touch targets are minimum 44x44pt
-**And** components are exported from `src/components/ui/index.ts`
+**And** all screens follow vara's design system
 
 ---
 
