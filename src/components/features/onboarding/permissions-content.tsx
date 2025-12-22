@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 
 import { Button, Text } from '@/components/ui';
 import { Camera, Notifications } from '@/components/ui/icons';
-import { brandColors, spacing } from '@/lib/design-system';
+import { brandColors, lightColors, spacing } from '@/lib/design-system';
 
 type PermissionStatus = 'pending' | 'granted';
 
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     gap: spacing.lg,
   },
   card: {
-    backgroundColor: '#2A2A2A',
+    backgroundColor: lightColors.background.secondary,
     borderRadius: 16,
     padding: spacing.lg,
   },
@@ -95,13 +95,13 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontFamily: 'PlusJakartaSans-SemiBold',
     fontSize: 18,
-    color: brandColors.cream,
+    color: lightColors.text.primary,
     marginLeft: spacing.sm,
   },
   cardDescription: {
     fontFamily: 'PlusJakartaSans-Regular',
     fontSize: 14,
-    color: '#AAAAAA',
+    color: lightColors.text.secondary,
     lineHeight: 21,
     marginBottom: spacing.md,
   },

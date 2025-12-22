@@ -10,8 +10,8 @@ import { Text } from '@/components/ui/text';
 import {
   borderRadius,
   brandColors,
-  darkColors,
   layout,
+  lightColors,
   spacing,
 } from '@/lib/design-system';
 
@@ -163,7 +163,7 @@ export function AlertCard({
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: darkColors.background.secondary,
+    backgroundColor: lightColors.background.secondary,
     borderRadius: borderRadius.lg,
     padding: layout.cardPadding,
     flexDirection: 'row',
@@ -187,22 +187,22 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 16,
     fontWeight: '600',
-    color: brandColors.cream,
+    color: lightColors.text.primary,
     flex: 1,
   },
-  titleResolved: { color: darkColors.text.secondary },
+  titleResolved: { color: lightColors.text.secondary },
   description: {
     fontSize: 14,
-    color: darkColors.text.secondary,
+    color: lightColors.text.secondary,
     marginBottom: spacing.sm,
     lineHeight: 20,
   },
-  descriptionResolved: { color: darkColors.text.tertiary },
+  descriptionResolved: { color: lightColors.text.tertiary },
   footerRow: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  timestamp: { fontSize: 12, color: darkColors.text.tertiary },
+  timestamp: { fontSize: 12, color: lightColors.text.tertiary },
   resolvedLabel: { fontSize: 12, color: brandColors.mint, fontWeight: '500' },
 });

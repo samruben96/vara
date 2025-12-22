@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 
 import { Button, Text } from '@/components/ui';
 import { Camera, Gallery } from '@/components/ui/icons';
-import { brandColors, spacing } from '@/lib/design-system';
+import { brandColors, lightColors, spacing } from '@/lib/design-system';
 
 interface AddPhotosContentProps {
   onUpload?: () => void;
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   explanation: {
     fontFamily: 'PlusJakartaSans-Regular',
     fontSize: 15,
-    color: '#AAAAAA',
+    color: lightColors.text.secondary,
     lineHeight: 22.5,
     textAlign: 'center',
     marginBottom: spacing.lg,
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   guidance: {
     fontFamily: 'PlusJakartaSans-Regular',
     fontSize: 14,
-    color: '#AAAAAA',
+    color: lightColors.text.secondary,
   },
   guidanceHighlight: {
     fontFamily: 'PlusJakartaSans-SemiBold',
@@ -119,12 +119,12 @@ const styles = StyleSheet.create({
   photoPlaceholder: {
     width: 100,
     height: 100,
-    backgroundColor: '#2A2A2A',
+    backgroundColor: lightColors.background.secondary,
     borderRadius: 12,
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 2,
-    borderColor: '#3A3A3A',
+    borderColor: lightColors.border.primary,
     borderStyle: 'dashed',
   },
 });

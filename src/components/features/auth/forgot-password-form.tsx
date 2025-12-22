@@ -9,7 +9,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import * as z from 'zod';
 
 import { Button, ControlledInput, Text, View } from '@/components/ui';
-import { brandColors } from '@/lib/design-system';
+import { brandColors, lightColors } from '@/lib/design-system';
 
 const forgotPasswordSchema = z.object({
   email: z.string().email('Invalid email format'),
@@ -143,7 +143,7 @@ export function ForgotPasswordForm({
 }
 
 const styles = StyleSheet.create({
-  safeArea: { flex: 1, backgroundColor: brandColors.charcoal },
+  safeArea: { flex: 1, backgroundColor: lightColors.background.primary },
   keyboardView: { flex: 1 },
   container: { flex: 1, paddingHorizontal: 24, justifyContent: 'center' },
   header: { alignItems: 'center', marginBottom: 32 },
@@ -157,13 +157,13 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontFamily: 'PlusJakartaSans-SemiBold',
-    color: brandColors.cream,
+    color: lightColors.text.primary,
     marginBottom: 12,
   },
   subtitle: {
     fontSize: 15,
     fontFamily: 'PlusJakartaSans-Regular',
-    color: '#AAAAAA',
+    color: lightColors.text.secondary,
     textAlign: 'center',
     lineHeight: 22,
     maxWidth: 300,
@@ -192,25 +192,25 @@ const styles = StyleSheet.create({
   successTitle: {
     fontSize: 24,
     fontFamily: 'PlusJakartaSans-SemiBold',
-    color: brandColors.cream,
+    color: lightColors.text.primary,
     marginBottom: 12,
   },
   successMessage: {
     fontSize: 15,
     fontFamily: 'PlusJakartaSans-Regular',
-    color: '#AAAAAA',
+    color: lightColors.text.secondary,
     textAlign: 'center',
     lineHeight: 22,
     marginBottom: 8,
   },
   emailHighlight: {
-    color: brandColors.cream,
+    color: lightColors.text.primary,
     fontFamily: 'PlusJakartaSans-SemiBold',
   },
   successHint: {
     fontSize: 13,
     fontFamily: 'PlusJakartaSans-Regular',
-    color: '#777777',
+    color: lightColors.text.tertiary,
     textAlign: 'center',
     marginBottom: 32,
   },

@@ -10,7 +10,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 
-import { borderRadius, darkColors } from '@/lib/design-system';
+import { borderRadius, lightColors } from '@/lib/design-system';
 
 export type SkeletonVariant = 'text' | 'circle' | 'rect';
 
@@ -125,10 +125,10 @@ export function Skeleton({
 const styles = StyleSheet.create({
   container: {
     overflow: 'hidden',
-    backgroundColor: darkColors.border.primary,
+    backgroundColor: lightColors.border.primary,
   },
   shimmer: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: darkColors.background.secondary,
+    backgroundColor: lightColors.background.secondary,
   },
 });

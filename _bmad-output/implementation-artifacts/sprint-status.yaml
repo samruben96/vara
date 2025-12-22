@@ -53,7 +53,7 @@ development_status:
   2-3-create-onboarding-flow-screens-shell: done
   2-4-create-home-screen-with-statuscircle-component: done
   2-5-build-core-ui-components: done  # merged from 2.12, 2.13, 2.14
-  2-6-create-main-tab-screens-shell: backlog  # merged from old 2.5, 2.6, 2.7
+  2-6-create-main-tab-screens-shell: done  # merged from old 2.5, 2.6, 2.7
   2-7-create-detail-progress-screens-shell: backlog  # merged from old 2.8, 2.9
   2-8-create-assistant-subscription-screens-shell: backlog  # merged from old 2.10, 2.11
   epic-2-retrospective: optional

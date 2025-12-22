@@ -4,7 +4,7 @@ import { StyleSheet, useWindowDimensions, View } from 'react-native';
 import { Alerts, Gallery, Monitor, User } from '@/components/ui/icons';
 import { StatusCircle } from '@/components/ui/status-circle';
 import { SummaryCard } from '@/components/ui/summary-card';
-import { darkColors, layout, spacing } from '@/lib/design-system';
+import { layout, lightColors, spacing } from '@/lib/design-system';
 
 const HERO_HEIGHT_RATIO = 0.4;
 
@@ -25,24 +25,24 @@ export function HomeContent() {
             <SummaryCard
               value="0"
               label="Images Monitored"
-              icon={<Gallery color={darkColors.text.secondary} />}
+              icon={<Gallery color={lightColors.text.secondary} />}
             />
             <SummaryCard
               value="0"
               label="Alerts"
-              icon={<Alerts color={darkColors.text.secondary} />}
+              icon={<Alerts color={lightColors.text.secondary} />}
             />
           </View>
           <View style={styles.cardRow}>
             <SummaryCard
               value="--"
               label="Last Scan"
-              icon={<Monitor color={darkColors.text.secondary} />}
+              icon={<Monitor color={lightColors.text.secondary} />}
             />
             <SummaryCard
               value="0"
               label="Accounts"
-              icon={<User color={darkColors.text.secondary} />}
+              icon={<User color={lightColors.text.secondary} />}
             />
           </View>
         </View>
@@ -54,7 +54,7 @@ export function HomeContent() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: darkColors.background.primary,
+    backgroundColor: lightColors.background.primary,
   },
   heroSection: {
     justifyContent: 'center',

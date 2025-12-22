@@ -10,7 +10,7 @@ import Animated, {
 import Svg, { Circle } from 'react-native-svg';
 
 import { Text } from '@/components/ui/text';
-import { brandColors, darkColors } from '@/lib/design-system';
+import { brandColors, lightColors } from '@/lib/design-system';
 
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 
@@ -55,7 +55,7 @@ export function ProgressRing({
   strokeWidth = DEFAULT_STROKE_WIDTH,
   showPercentage = true,
   color = brandColors.mint,
-  backgroundColor = darkColors.background.secondary,
+  backgroundColor = lightColors.border.primary,
 }: ProgressRingProps) {
   const clampedProgress = Math.min(100, Math.max(0, progress));
   const radius = (size - strokeWidth) / 2;
@@ -122,6 +122,6 @@ const styles = StyleSheet.create({
   percentageText: {
     fontSize: 16,
     fontWeight: '600',
-    color: brandColors.cream,
+    color: lightColors.text.primary,
   },
 });

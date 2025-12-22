@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { Text } from '@/components/ui';
-import { brandColors, spacing } from '@/lib/design-system';
+import { brandColors, lightColors, spacing } from '@/lib/design-system';
 
 const VALUE_PROPS = [
   'Discover exposure',
@@ -68,12 +68,12 @@ const styles = StyleSheet.create({
   valuePropText: {
     fontFamily: 'PlusJakartaSans-Regular',
     fontSize: 18,
-    color: brandColors.cream,
+    color: lightColors.text.primary,
   },
   tagline: {
     fontFamily: 'PlusJakartaSans-Regular',
     fontSize: 15,
-    color: '#AAAAAA',
+    color: lightColors.text.secondary,
     fontStyle: 'italic',
     textAlign: 'center',
   },

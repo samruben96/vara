@@ -8,7 +8,7 @@ import * as z from 'zod';
 
 import { ControlledInput, Text } from '@/components/ui';
 import { Instagram, TikTok, Twitter } from '@/components/ui/icons';
-import { brandColors, spacing } from '@/lib/design-system';
+import { brandColors, lightColors, spacing } from '@/lib/design-system';
 
 const addInfoSchema = z.object({
   firstName: z.string().min(1, 'First name is required'),
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
   explanation: {
     fontFamily: 'PlusJakartaSans-Regular',
     fontSize: 14,
-    color: '#AAAAAA',
+    color: lightColors.text.secondary,
     lineHeight: 21,
     textAlign: 'center',
     marginBottom: spacing.lg,
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontFamily: 'PlusJakartaSans-SemiBold',
     fontSize: 14,
-    color: brandColors.cream,
+    color: lightColors.text.primary,
     marginBottom: spacing.md,
     marginTop: spacing.sm,
   },
@@ -178,6 +178,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   input: {
-    backgroundColor: '#2A2A2A',
+    backgroundColor: lightColors.background.secondary,
   },
 });

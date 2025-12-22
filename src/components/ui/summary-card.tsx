@@ -6,8 +6,8 @@ import { Text } from '@/components/ui/text';
 import {
   borderRadius,
   brandColors,
-  darkColors,
   layout,
+  lightColors,
 } from '@/lib/design-system';
 
 export type SummaryCardStatus = 'default' | 'success' | 'warning';
@@ -21,7 +21,7 @@ export interface SummaryCardProps {
 }
 
 const STATUS_VALUE_COLORS: Record<SummaryCardStatus, string> = {
-  default: brandColors.cream,
+  default: lightColors.text.primary,
   success: brandColors.mint,
   warning: brandColors.coral,
 };
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     opacity: 0.8,
   },
   card: {
-    backgroundColor: darkColors.background.secondary,
+    backgroundColor: lightColors.background.secondary,
     borderRadius: borderRadius.xl,
     padding: layout.cardPadding,
     alignItems: 'center',
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 14,
     fontWeight: '400',
-    color: darkColors.text.secondary,
+    color: lightColors.text.secondary,
     marginTop: 4,
     textAlign: 'center',
   },

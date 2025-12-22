@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 
 import { ActionButton } from '@/components/ui/action-button';
 import { Text } from '@/components/ui/text';
-import { brandColors, darkColors, spacing } from '@/lib/design-system';
+import { lightColors, spacing } from '@/lib/design-system';
 
 export interface EmptyStateAction {
   label: string;
@@ -59,13 +59,13 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: '600',
-    color: brandColors.cream,
+    color: lightColors.text.primary,
     textAlign: 'center',
     marginBottom: spacing.sm,
   },
   description: {
     fontSize: 14,
-    color: darkColors.text.secondary,
+    color: lightColors.text.secondary,
     textAlign: 'center',
     lineHeight: 20,
     maxWidth: 280,

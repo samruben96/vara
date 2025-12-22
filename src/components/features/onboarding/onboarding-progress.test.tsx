@@ -48,23 +48,23 @@ describe('OnboardingProgress', () => {
 
   it('shows pending steps with gray', () => {
     render(<OnboardingProgress currentStep={2} totalSteps={5} />);
-    // Steps 3, 4, 5 should be pending (gray)
+    // Steps 3, 4, 5 should be pending (light gray for light theme)
     const pendingDot3 = screen.getByTestId('progress-dot-3');
     const pendingDot4 = screen.getByTestId('progress-dot-4');
     const pendingDot5 = screen.getByTestId('progress-dot-5');
     expect(pendingDot3.props.style).toEqual(
       expect.objectContaining({
-        backgroundColor: '#3A3A3A', // gray
+        backgroundColor: '#E5E5E5', // light gray
       })
     );
     expect(pendingDot4.props.style).toEqual(
       expect.objectContaining({
-        backgroundColor: '#3A3A3A', // gray
+        backgroundColor: '#E5E5E5', // light gray
       })
     );
     expect(pendingDot5.props.style).toEqual(
       expect.objectContaining({
-        backgroundColor: '#3A3A3A', // gray
+        backgroundColor: '#E5E5E5', // light gray
       })
     );
   });

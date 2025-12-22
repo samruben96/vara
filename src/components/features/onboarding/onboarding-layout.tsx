@@ -6,7 +6,7 @@ import {
 } from 'react-native-safe-area-context';
 
 import { Button, Text } from '@/components/ui';
-import { brandColors, spacing } from '@/lib/design-system';
+import { brandColors, lightColors, spacing } from '@/lib/design-system';
 
 import { OnboardingProgress } from './onboarding-progress';
 
@@ -94,7 +94,7 @@ export function OnboardingLayout({
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: brandColors.charcoal,
+    backgroundColor: lightColors.background.primary,
   },
   container: {
     flex: 1,
@@ -106,13 +106,13 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: 'PlusJakartaSans-SemiBold',
     fontSize: 24,
-    color: brandColors.cream,
+    color: lightColors.text.primary,
     textAlign: 'center',
   },
   description: {
     fontFamily: 'PlusJakartaSans-Regular',
     fontSize: 15,
-    color: '#AAAAAA',
+    color: lightColors.text.secondary,
     textAlign: 'center',
     lineHeight: 22.5,
     marginTop: spacing.sm,
@@ -144,6 +144,6 @@ const styles = StyleSheet.create({
   backLink: {
     fontFamily: 'PlusJakartaSans-Medium',
     fontSize: 14,
-    color: '#AAAAAA',
+    color: lightColors.text.secondary,
   },
 });

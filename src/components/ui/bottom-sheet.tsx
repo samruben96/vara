@@ -12,7 +12,7 @@ import React, {
 } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { borderRadius, darkColors, spacing } from '@/lib/design-system';
+import { borderRadius, lightColors, spacing } from '@/lib/design-system';
 
 export interface BottomSheetProps {
   visible: boolean;
@@ -102,12 +102,12 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
   background: {
-    backgroundColor: darkColors.background.secondary,
+    backgroundColor: lightColors.background.secondary,
     borderTopLeftRadius: borderRadius.xl,
     borderTopRightRadius: borderRadius.xl,
   },
   handleIndicator: {
-    backgroundColor: darkColors.text.tertiary,
+    backgroundColor: lightColors.text.tertiary,
     width: 40,
     height: 4,
     borderRadius: 2,

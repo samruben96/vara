@@ -15,7 +15,7 @@ import {
   Text,
   View,
 } from '@/components/ui';
-import { brandColors } from '@/lib/design-system';
+import { brandColors, lightColors } from '@/lib/design-system';
 
 const signupSchema = z
   .object({
@@ -157,7 +157,7 @@ export function SignupForm({ onSubmit = () => {} }: SignupFormProps) {
 }
 
 const styles = StyleSheet.create({
-  safeArea: { flex: 1, backgroundColor: brandColors.charcoal },
+  safeArea: { flex: 1, backgroundColor: lightColors.background.primary },
   keyboardView: { flex: 1 },
   container: { flex: 1, paddingHorizontal: 24, justifyContent: 'center' },
   header: { alignItems: 'center', marginBottom: 24 },
@@ -171,13 +171,13 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontFamily: 'PlusJakartaSans-SemiBold',
-    color: brandColors.cream,
+    color: lightColors.text.primary,
     marginBottom: 8,
   },
   subtitle: {
     fontSize: 15,
     fontFamily: 'PlusJakartaSans-Regular',
-    color: '#AAAAAA',
+    color: lightColors.text.secondary,
     textAlign: 'center',
   },
   form: { marginBottom: 16 },
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
   passwordHint: {
     fontSize: 12,
     fontFamily: 'PlusJakartaSans-Regular',
-    color: '#777777',
+    color: lightColors.text.tertiary,
     marginBottom: 12,
     marginTop: -8,
   },
@@ -195,12 +195,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginVertical: 16,
   },
-  dividerLine: { flex: 1, height: 1, backgroundColor: '#3A3A3A' },
+  dividerLine: {
+    flex: 1,
+    height: 1,
+    backgroundColor: lightColors.border.primary,
+  },
   dividerText: {
     marginHorizontal: 16,
     fontSize: 13,
     fontFamily: 'PlusJakartaSans-Regular',
-    color: '#777777',
+    color: lightColors.text.tertiary,
   },
   socialButtons: { marginBottom: 16 },
   loginContainer: {
@@ -211,7 +215,7 @@ const styles = StyleSheet.create({
   loginText: {
     fontSize: 15,
     fontFamily: 'PlusJakartaSans-Regular',
-    color: '#AAAAAA',
+    color: lightColors.text.secondary,
   },
   loginLink: {
     fontSize: 15,

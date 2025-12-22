@@ -4,12 +4,7 @@ import { Image as ExpoImage } from 'expo-image';
 import React, { useCallback } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 
-import {
-  borderRadius,
-  brandColors,
-  darkColors,
-  statusColors,
-} from '@/lib/design-system';
+import { borderRadius, lightColors, statusColors } from '@/lib/design-system';
 
 export type ThumbnailStatus = 'protected' | 'attention' | 'critical';
 
@@ -95,7 +90,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     borderRadius: borderRadius.lg,
     overflow: 'hidden',
-    backgroundColor: darkColors.background.secondary,
+    backgroundColor: lightColors.background.secondary,
   },
   pressed: {
     opacity: 0.8,
@@ -111,6 +106,6 @@ const styles = StyleSheet.create({
     height: 12,
     borderRadius: 6,
     borderWidth: 2,
-    borderColor: brandColors.charcoal,
+    borderColor: lightColors.background.secondary,
   },
 });

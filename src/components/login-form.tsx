@@ -15,7 +15,7 @@ import {
   Text,
   View,
 } from '@/components/ui';
-import { brandColors } from '@/lib/design-system';
+import { brandColors, lightColors } from '@/lib/design-system';
 
 const schema = z.object({
   email: z
@@ -133,7 +133,7 @@ export function LoginForm({ onSubmit = () => {} }: LoginFormProps) {
 }
 
 const styles = StyleSheet.create({
-  safeArea: { flex: 1, backgroundColor: brandColors.charcoal },
+  safeArea: { flex: 1, backgroundColor: lightColors.background.primary },
   keyboardView: { flex: 1 },
   container: { flex: 1, paddingHorizontal: 24, justifyContent: 'center' },
   header: { alignItems: 'center', marginBottom: 32 },
@@ -147,13 +147,13 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontFamily: 'PlusJakartaSans-SemiBold',
-    color: brandColors.cream,
+    color: lightColors.text.primary,
     marginBottom: 8,
   },
   subtitle: {
     fontSize: 15,
     fontFamily: 'PlusJakartaSans-Regular',
-    color: '#AAAAAA',
+    color: lightColors.text.secondary,
     textAlign: 'center',
     maxWidth: 280,
   },
@@ -175,12 +175,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginVertical: 24,
   },
-  dividerLine: { flex: 1, height: 1, backgroundColor: '#3A3A3A' },
+  dividerLine: {
+    flex: 1,
+    height: 1,
+    backgroundColor: lightColors.border.primary,
+  },
   dividerText: {
     marginHorizontal: 16,
     fontSize: 13,
     fontFamily: 'PlusJakartaSans-Regular',
-    color: '#777777',
+    color: lightColors.text.tertiary,
   },
   socialButtons: { marginBottom: 24 },
   signupContainer: {
@@ -191,7 +195,7 @@ const styles = StyleSheet.create({
   signupText: {
     fontSize: 15,
     fontFamily: 'PlusJakartaSans-Regular',
-    color: '#AAAAAA',
+    color: lightColors.text.secondary,
   },
   signupLink: {
     fontSize: 15,

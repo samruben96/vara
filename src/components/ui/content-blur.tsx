@@ -13,7 +13,7 @@ import { Text } from '@/components/ui/text';
 import {
   borderRadius,
   brandColors,
-  darkColors,
+  lightColors,
   spacing,
 } from '@/lib/design-system';
 
@@ -143,5 +143,5 @@ const styles = StyleSheet.create({
     color: brandColors.cream,
     marginBottom: spacing.xs,
   },
-  overlayHint: { fontSize: 12, color: darkColors.text.secondary },
+  overlayHint: { fontSize: 12, color: lightColors.text.secondary },
 });

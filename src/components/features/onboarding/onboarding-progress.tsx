@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import { brandColors } from '@/lib/design-system';
+import { brandColors, lightColors } from '@/lib/design-system';
 
 interface OnboardingProgressProps {
   currentStep: number;
@@ -35,7 +35,7 @@ function getDotStyle(isActive: boolean, isCompleted: boolean) {
   const baseStyle = {
     height: 8,
     borderRadius: 4,
-    backgroundColor: '#3A3A3A', // pending gray
+    backgroundColor: lightColors.border.primary, // pending gray
     width: 8,
   };
 

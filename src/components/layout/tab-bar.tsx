@@ -1,6 +1,5 @@
 import type { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import * as Haptics from 'expo-haptics';
-import { useColorScheme } from 'nativewind';
 import * as React from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -11,8 +10,8 @@ import {
   brandColors,
   fontFamilies,
   fontSizes,
-  getSemanticColors,
   layout,
+  lightColors,
   spacing,
 } from '@/lib/design-system';
 
@@ -27,7 +26,6 @@ type TabName = keyof typeof TAB_ICONS;
 
 export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
   const insets = useSafeAreaInsets();
-  const { colorScheme } = useColorScheme();
 
   return (
     <View
@@ -65,7 +63,7 @@ export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
         const Icon = TAB_ICONS[route.name as TabName];
         const iconColor = isFocused
           ? brandColors.mint
-          : getSemanticColors(colorScheme ?? 'dark').text.secondary;
+          : lightColors.text.secondary;
 
         return (
           <Pressable
@@ -90,9 +88,11 @@ export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    backgroundColor: brandColors.charcoal,
+    backgroundColor: lightColors.background.secondary,
     paddingTop: spacing.sm,
     height: layout.tabBarHeight,
+    borderTopWidth: 1,
+    borderTopColor: lightColors.border.primary,
   },
   tabButton: {
     flex: 1,

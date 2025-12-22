@@ -93,7 +93,7 @@ describe('TabBar', () => {
     );
     const monitorLabel = screen.getByText('Monitor');
     expect(monitorLabel.props.style).toEqual(
-      expect.objectContaining({ color: '#AAAAAA' })
+      expect.objectContaining({ color: '#666666' })
     );
   });
 

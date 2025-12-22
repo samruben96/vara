@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 
 import { Text } from '@/components/ui';
 import { ShieldScan } from '@/components/ui/icons';
-import { brandColors, spacing } from '@/lib/design-system';
+import { brandColors, lightColors, spacing } from '@/lib/design-system';
 
 const SCAN_ITEMS = [
   { label: 'Your photos', description: 'Facial recognition across the web' },
@@ -52,13 +52,13 @@ const styles = StyleSheet.create({
     width: 120,
     height: 120,
     borderRadius: 60,
-    backgroundColor: 'rgba(177, 239, 227, 0.1)',
+    backgroundColor: 'rgba(177, 239, 227, 0.15)',
     alignItems: 'center',
     justifyContent: 'center',
   },
   summaryContainer: {
     width: '100%',
-    backgroundColor: '#2A2A2A',
+    backgroundColor: lightColors.background.secondary,
     borderRadius: 16,
     padding: spacing.lg,
     marginBottom: spacing.lg,
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   summaryTitle: {
     fontFamily: 'PlusJakartaSans-SemiBold',
     fontSize: 16,
-    color: brandColors.cream,
+    color: lightColors.text.primary,
     marginBottom: spacing.md,
   },
   scanItem: {
@@ -88,12 +88,12 @@ const styles = StyleSheet.create({
   scanItemLabel: {
     fontFamily: 'PlusJakartaSans-Medium',
     fontSize: 15,
-    color: brandColors.cream,
+    color: lightColors.text.primary,
   },
   scanItemDescription: {
     fontFamily: 'PlusJakartaSans-Regular',
     fontSize: 13,
-    color: '#AAAAAA',
+    color: lightColors.text.secondary,
     marginTop: 2,
   },
   timeContainer: {
@@ -103,12 +103,12 @@ const styles = StyleSheet.create({
   timeLabel: {
     fontFamily: 'PlusJakartaSans-Regular',
     fontSize: 13,
-    color: '#777777',
+    color: lightColors.text.tertiary,
     marginBottom: spacing.xs,
   },
   timeValue: {
     fontFamily: 'PlusJakartaSans-Medium',
     fontSize: 15,
-    color: brandColors.cream,
+    color: lightColors.text.primary,
   },
 });
