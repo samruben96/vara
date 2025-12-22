@@ -50,6 +50,20 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Create .env.production file
+        run: |
+          cat << EOF > .env.production
+          API_URL=${{ secrets.API_URL }}
+          VAR_NUMBER=${{ secrets.VAR_NUMBER || '1' }}
+          VAR_BOOL=true
+          SECRET_KEY=${{ secrets.SECRET_KEY }}
+          SUPABASE_URL=${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }}
+          SENTRY_DSN=${{ secrets.SENTRY_DSN }}
+          POSTHOG_API_KEY=${{ secrets.POSTHOG_API_KEY }}
+          POSTHOG_HOST=${{ secrets.POSTHOG_HOST || 'https://app.posthog.com' }}
+          EOF
+
       - name: Build (Push to main)
         if: github.event_name == 'push'
         run: eas build --platform all --profile production --non-interactive --no-wait
