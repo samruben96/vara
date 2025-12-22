@@ -1,8 +1,9 @@
 name: EAS Build
 
 on:
-  push:
-    branches: [main]
+  # Disabled automatic builds during development - enable when ready for production
+  # push:
+  #   branches: [main]
   workflow_dispatch:
     inputs:
       platform:
