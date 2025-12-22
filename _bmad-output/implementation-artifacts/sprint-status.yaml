@@ -49,7 +49,7 @@ development_status:
   2-1-implement-tab-navigation-app-layout: done
   2-2-create-auth-flow-screens-shell: done
   2-3-create-onboarding-flow-screens-shell: done
-  2-4-create-home-screen-with-statuscircle-component: review
+  2-4-create-home-screen-with-statuscircle-component: done
   2-5-create-monitor-screen-shell: backlog
   2-6-create-alerts-screen-shell: backlog
   2-7-create-settings-screen-shell: backlog
