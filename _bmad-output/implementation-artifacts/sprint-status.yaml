@@ -35,21 +35,21 @@ story_location: _bmad-output/implementation-artifacts
 
 development_status:
   # Epic 1: Foundation & Project Setup
-  epic-1: in-progress
+  epic-1: done
   1-1-initialize-project-with-obytes-template: done
   1-2-set-up-supabase-project-local-development: done
   1-3-implement-design-system-tokens: done
   1-4-create-core-database-schema-rls-foundation: done
   1-5-configure-authentication-foundation: done
-  1-6-set-up-observability-ci-cd: review
-  epic-1-retrospective: optional
+  1-6-set-up-observability-ci-cd: done
+  epic-1-retrospective: done
 
   # Epic 2: App Shell, Screens & Navigation
-  epic-2: backlog
-  2-1-implement-tab-navigation-app-layout: backlog
-  2-2-create-auth-flow-screens-shell: backlog
-  2-3-create-onboarding-flow-screens-shell: backlog
-  2-4-create-home-screen-with-statuscircle-component: backlog
+  epic-2: in-progress
+  2-1-implement-tab-navigation-app-layout: done
+  2-2-create-auth-flow-screens-shell: done
+  2-3-create-onboarding-flow-screens-shell: done
+  2-4-create-home-screen-with-statuscircle-component: review
   2-5-create-monitor-screen-shell: backlog
   2-6-create-alerts-screen-shell: backlog
   2-7-create-settings-screen-shell: backlog

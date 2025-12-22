@@ -6,12 +6,21 @@ import type { RenderOptions } from '@testing-library/react-native';
 import { render, userEvent } from '@testing-library/react-native';
 import type { ReactElement } from 'react';
 import React from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
+// Initial metrics for SafeAreaProvider in tests
+const initialMetrics = {
+  frame: { x: 0, y: 0, width: 390, height: 844 },
+  insets: { top: 47, left: 0, right: 0, bottom: 34 },
+};
 
 const createAppWrapper = () => {
   return ({ children }: { children: React.ReactNode }) => (
-    <BottomSheetModalProvider>
-      <NavigationContainer>{children}</NavigationContainer>
-    </BottomSheetModalProvider>
+    <SafeAreaProvider initialMetrics={initialMetrics}>
+      <BottomSheetModalProvider>
+        <NavigationContainer>{children}</NavigationContainer>
+      </BottomSheetModalProvider>
+    </SafeAreaProvider>
   );
 };
 

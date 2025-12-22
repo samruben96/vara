@@ -5,6 +5,14 @@ import { cleanup, screen, setup, waitFor } from '@/lib/test-utils';
 import type { LoginFormProps } from './login-form';
 import { LoginForm } from './login-form';
 
+// Mock expo-router
+jest.mock('expo-router', () => ({
+  useRouter: () => ({
+    push: jest.fn(),
+    back: jest.fn(),
+  }),
+}));
+
 afterEach(cleanup);
 
 const onSubmitMock: jest.Mock<LoginFormProps['onSubmit']> = jest.fn();

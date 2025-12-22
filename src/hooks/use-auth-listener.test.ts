@@ -1,4 +1,3 @@
-/* eslint-disable max-lines-per-function */
 /**
  * Auth Listener Hook Tests (Story 1.5 - Task 5)
  *

@@ -148,6 +148,7 @@ export default defineConfig([
     plugins: { 'testing-library': testingLibrary },
     rules: {
       ...testingLibrary.configs.react.rules,
+      'max-lines-per-function': 'off',
     },
   },
 ]);

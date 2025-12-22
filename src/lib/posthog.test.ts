@@ -1,4 +1,3 @@
-/* eslint-disable max-lines-per-function */
 // Mock the posthog-react-native module
 const mockPostHogInstance = {
   capture: jest.fn(),

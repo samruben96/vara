@@ -1,4 +1,3 @@
-/* eslint-disable max-lines-per-function */
 /**
  * Supabase Client Tests (Review Fix M1)
  *

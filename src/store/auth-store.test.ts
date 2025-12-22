@@ -1,4 +1,3 @@
-/* eslint-disable max-lines-per-function */
 /**
  * Auth Store Tests (Story 1.5 - Task 3)
  *

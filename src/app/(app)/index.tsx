@@ -1,35 +1,16 @@
-import { FlashList } from '@shopify/flash-list';
-import React from 'react';
+import * as React from 'react';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import type { Post } from '@/api';
-import { usePosts } from '@/api';
-import { Card } from '@/components/card';
-import { EmptyList, FocusAwareStatusBar, Text, View } from '@/components/ui';
+import { HomeContent } from '@/components/features/home';
+import { FocusAwareStatusBar, View } from '@/components/ui';
 
-export default function Feed() {
-  const { data, isPending, isError } = usePosts();
-  const renderItem = React.useCallback(
-    ({ item }: { item: Post }) => <Card {...item} />,
-    []
-  );
+export default function HomeScreen() {
+  const insets = useSafeAreaInsets();
 
-  if (isError) {
-    return (
-      <View>
-        <Text> Error Loading data </Text>
-      </View>
-    );
-  }
   return (
-    <View className="flex-1 ">
+    <View className="flex-1 bg-charcoal-900" style={{ paddingTop: insets.top }}>
       <FocusAwareStatusBar />
-      <FlashList
-        data={data}
-        renderItem={renderItem}
-        keyExtractor={(_, index) => `item-${index}`}
-        ListEmptyComponent={<EmptyList isLoading={isPending} />}
-        estimatedItemSize={300}
-      />
+      <HomeContent />
     </View>
   );
 }
