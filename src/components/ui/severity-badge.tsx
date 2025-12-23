@@ -18,11 +18,12 @@ export interface SeverityBadgeProps {
   size?: SeverityBadgeSize;
 }
 
+// Story 2.9: Updated severity colors (AC21)
 const SEVERITY_COLORS: Record<SeverityLevel, string> = {
-  low: brandColors.mint,
-  medium: brandColors.lavender,
-  high: brandColors.coral,
-  critical: statusColors.critical,
+  low: statusColors.protected, // Sage green
+  medium: statusColors.attention, // Coral
+  high: statusColors.attention, // Coral (same as medium for visual consistency)
+  critical: statusColors.critical, // Red
 };
 
 const SEVERITY_TEXT_COLORS: Record<SeverityLevel, string> = {

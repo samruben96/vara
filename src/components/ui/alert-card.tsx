@@ -1,3 +1,11 @@
+/**
+ * AlertCard Component - Story 2.9 Updated
+ *
+ * AC15: Softer shadows (opacity 0.05-0.08)
+ * AC16: Increased border-radius (20px)
+ * AC17: Generous padding (24px)
+ */
+
 import * as Haptics from 'expo-haptics';
 import React, { useCallback } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
@@ -8,11 +16,11 @@ import {
 } from '@/components/ui/severity-badge';
 import { Text } from '@/components/ui/text';
 import {
-  borderRadius,
-  brandColors,
+  cardShadows,
   layout,
   lightColors,
   spacing,
+  statusColors,
 } from '@/lib/design-system';
 
 export type AlertStatus = 'new' | 'viewed' | 'resolved';
@@ -26,10 +34,11 @@ export interface AlertCardProps {
   onPress?: () => void;
 }
 
+// Story 2.9: Updated to use new status colors
 const STATUS_INDICATOR_COLORS: Record<AlertStatus, string | undefined> = {
-  new: brandColors.coral,
+  new: statusColors.attention, // Coral
   viewed: undefined,
-  resolved: brandColors.mint,
+  resolved: statusColors.protected, // Sage green
 };
 
 function formatRelativeTime(date: Date): string {
@@ -161,12 +170,14 @@ export function AlertCard({
   );
 }
 
+// Story 2.9: Updated styles with softer shadows and rounded corners
 const styles = StyleSheet.create({
   card: {
     backgroundColor: lightColors.background.secondary,
-    borderRadius: borderRadius.lg,
-    padding: layout.cardPadding,
+    borderRadius: layout.cardRadius, // AC16: 20px border radius
+    padding: layout.cardPadding, // AC17: 24px padding
     flexDirection: 'row',
+    ...cardShadows.soft, // AC15: Softer shadow
   },
   pressed: { opacity: 0.8 },
   statusIndicator: {
@@ -204,5 +215,5 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   timestamp: { fontSize: 12, color: lightColors.text.tertiary },
-  resolvedLabel: { fontSize: 12, color: brandColors.mint, fontWeight: '500' },
+  resolvedLabel: { fontSize: 12, color: statusColors.protected, fontWeight: '500' },
 });

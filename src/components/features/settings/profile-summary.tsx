@@ -1,3 +1,9 @@
+/**
+ * ProfileSummary Component - Story 2.9 Updated
+ *
+ * Displays user profile with avatar, name, email, and subscription tier badge.
+ * Uses updated design tokens: sage green avatar, coral premium badge, teal pro badge.
+ */
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
@@ -5,8 +11,12 @@ import { Text } from '@/components/ui/text';
 import {
   borderRadius,
   brandColors,
+  cardShadows,
+  layout,
   lightColors,
   spacing,
+  statusColors,
+  textStyles,
 } from '@/lib/design-system';
 
 export interface ProfileData {
@@ -26,15 +36,24 @@ const TIER_LABELS: Record<ProfileData['subscriptionTier'], string> = {
   pro: 'Pro',
 };
 
+// Story 2.9: Updated tier colors - coral for premium, teal for pro
 const TIER_COLORS: Record<ProfileData['subscriptionTier'], string> = {
   free: lightColors.text.tertiary,
-  premium: brandColors.lavender,
-  pro: brandColors.mint,
+  premium: brandColors.coral, // Coral CTA color for premium
+  pro: brandColors.darkTeal, // Dark teal for pro
+};
+
+// Story 2.9: Updated tier text colors for better contrast
+const TIER_TEXT_COLORS: Record<ProfileData['subscriptionTier'], string> = {
+  free: lightColors.text.primary,
+  premium: '#FFFFFF', // White text on coral
+  pro: '#FFFFFF', // White text on dark teal
 };
 
 export function ProfileSummary({ profile }: ProfileSummaryProps) {
   const tierLabel = TIER_LABELS[profile.subscriptionTier];
   const tierColor = TIER_COLORS[profile.subscriptionTier];
+  const tierTextColor = TIER_TEXT_COLORS[profile.subscriptionTier];
   const initials =
     profile.avatarInitials ||
     profile.name
@@ -63,7 +82,9 @@ export function ProfileSummary({ profile }: ProfileSummaryProps) {
 
       {/* Subscription Badge */}
       <View style={[styles.tierBadge, { backgroundColor: tierColor }]}>
-        <Text style={styles.tierText}>{tierLabel}</Text>
+        <Text style={[styles.tierText, { color: tierTextColor }]}>
+          {tierLabel}
+        </Text>
       </View>
     </View>
   );
@@ -74,14 +95,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: lightColors.background.secondary,
-    borderRadius: borderRadius.lg,
+    borderRadius: layout.cardRadius, // Story 2.9: AC16 20px radius
     padding: spacing.md,
+    ...cardShadows.soft, // Story 2.9: AC15 soft shadows
   },
   avatar: {
     width: 56,
     height: 56,
     borderRadius: 28,
-    backgroundColor: brandColors.lavender,
+    backgroundColor: statusColors.protected, // Story 2.9: Sage green avatar
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: spacing.md,
@@ -89,18 +111,18 @@ const styles = StyleSheet.create({
   avatarText: {
     fontSize: 20,
     fontWeight: '600',
-    color: brandColors.charcoal,
+    color: '#FFFFFF', // White text on sage green
   },
   infoContainer: {
     flex: 1,
   },
   name: {
-    fontSize: 16,
+    fontSize: textStyles.bodyText.fontSize, // Story 2.9: Body text (15px)
     fontWeight: '600',
     color: lightColors.text.primary,
   },
   email: {
-    fontSize: 14,
+    fontSize: textStyles.caption.fontSize, // Story 2.9: Caption (13px)
     color: lightColors.text.secondary,
     marginTop: 2,
   },
@@ -112,6 +134,5 @@ const styles = StyleSheet.create({
   tierText: {
     fontSize: 12,
     fontWeight: '600',
-    color: brandColors.charcoal,
   },
 });

@@ -47,6 +47,7 @@ development_status:
   # Epic 2: App Shell, Screens & Navigation
   # CONSOLIDATED: 14 stories → 8 stories (2025-12-22)
   # Merges: 2.12-2.14→2.5, old 2.5-2.7→2.6, old 2.8-2.9→2.7, old 2.10-2.11→2.8
+  # ADDED: Story 2.9 for visual design polish (2025-12-22)
   epic-2: in-progress
   2-1-implement-tab-navigation-app-layout: done
   2-2-create-auth-flow-screens-shell: done
@@ -56,6 +57,7 @@ development_status:
   2-6-create-main-tab-screens-shell: done  # merged from old 2.5, 2.6, 2.7
   2-7-create-detail-progress-screens-shell: backlog  # merged from old 2.8, 2.9
   2-8-create-assistant-subscription-screens-shell: backlog  # merged from old 2.10, 2.11
+  2-9-visual-design-polish: done  # COMPLETED: Modern minimalist visual refresh matching brand mockups
   epic-2-retrospective: optional
 
   # Epic 3: User Authentication & Account

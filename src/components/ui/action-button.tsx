@@ -1,9 +1,19 @@
+/**
+ * ActionButton Component - Story 2.9 Updated
+ *
+ * Primary CTA button with coral styling and pill shape.
+ * AC10: Pill-shaped buttons (borderRadius: 9999)
+ * AC11: Coral primary background (#E8A87C)
+ * AC12: Darker coral pressed state (#D4956D)
+ * AC13: Coral border/text for secondary buttons
+ */
+
 import * as Haptics from 'expo-haptics';
 import React, { useCallback } from 'react';
 import { ActivityIndicator, Pressable, StyleSheet, View } from 'react-native';
 
 import { Text } from '@/components/ui/text';
-import { borderRadius, brandColors, lightColors, spacing } from '@/lib/design-system';
+import { ctaColors, lightColors, spacing, textColors } from '@/lib/design-system';
 
 export type ActionButtonVariant = 'primary' | 'secondary' | 'danger' | 'ghost';
 export type ActionButtonSize = 'sm' | 'md' | 'lg';
@@ -16,28 +26,33 @@ export interface ActionButtonProps {
   size?: ActionButtonSize;
   onPress?: () => void;
   icon?: React.ReactNode;
+  testID?: string;
 }
 
+// Story 2.9: Updated variant styles with coral colors
 const VARIANT_STYLES: Record<
   ActionButtonVariant,
   {
     backgroundColor: string;
+    pressedBackgroundColor?: string;
     borderColor?: string;
     textColor: string;
   }
 > = {
   primary: {
-    backgroundColor: brandColors.mint,
-    textColor: brandColors.charcoal,
+    backgroundColor: ctaColors.coral, // #E8A87C (AC11)
+    pressedBackgroundColor: ctaColors.coralDark, // #D4956D (AC12)
+    textColor: textColors.charcoal, // Dark text for contrast
   },
   secondary: {
     backgroundColor: 'transparent',
-    borderColor: brandColors.mint,
-    textColor: brandColors.mint,
+    borderColor: ctaColors.coral, // Coral border (AC13)
+    textColor: ctaColors.coral, // Coral text (AC13)
   },
   danger: {
-    backgroundColor: brandColors.coral,
-    textColor: brandColors.charcoal,
+    backgroundColor: lightColors.status.critical, // Keep red for danger
+    pressedBackgroundColor: '#C75050',
+    textColor: '#FFFFFF',
   },
   ghost: {
     backgroundColor: 'transparent',
@@ -58,13 +73,13 @@ const SIZE_STYLES: Record<
     paddingVertical: spacing.sm,
     paddingHorizontal: spacing.md,
     fontSize: 14,
-    minHeight: 44, // Minimum 44pt touch target per AC-18
+    minHeight: 44, // Minimum 44pt touch target (AC38)
   },
   md: {
     paddingVertical: spacing.sm + 2,
     paddingHorizontal: spacing.lg,
     fontSize: 16,
-    minHeight: 44, // Minimum 44pt touch target
+    minHeight: 48, // Updated to 48px for better touch target
   },
   lg: {
     paddingVertical: spacing.md,
@@ -74,6 +89,9 @@ const SIZE_STYLES: Record<
   },
 };
 
+// Pill shape border radius (AC10)
+const PILL_BORDER_RADIUS = 9999;
+
 export function ActionButton({
   variant = 'primary',
   label,
@@ -82,6 +100,7 @@ export function ActionButton({
   size = 'md',
   onPress,
   icon,
+  testID,
 }: ActionButtonProps) {
   const variantStyle = VARIANT_STYLES[variant];
   const sizeStyle = SIZE_STYLES[size];
@@ -96,6 +115,14 @@ export function ActionButton({
 
   const accessibilityLabel = loading ? `${label}, loading` : label;
 
+  // Get background color based on pressed state (AC12)
+  const getBackgroundColor = (pressed: boolean) => {
+    if (pressed && variantStyle.pressedBackgroundColor) {
+      return variantStyle.pressedBackgroundColor;
+    }
+    return variantStyle.backgroundColor;
+  };
+
   return (
     <Pressable
       onPress={handlePress}
@@ -103,16 +130,18 @@ export function ActionButton({
       accessibilityLabel={accessibilityLabel}
       accessibilityRole="button"
       accessibilityState={{ disabled: isDisabled }}
+      testID={testID}
       style={({ pressed }) => [
         styles.button,
         {
-          backgroundColor: variantStyle.backgroundColor,
+          backgroundColor: getBackgroundColor(pressed),
           borderColor: variantStyle.borderColor,
           borderWidth: variantStyle.borderColor ? 2 : 0,
+          borderRadius: PILL_BORDER_RADIUS, // Pill shape (AC10)
           paddingVertical: sizeStyle.paddingVertical,
           paddingHorizontal: sizeStyle.paddingHorizontal,
           minHeight: sizeStyle.minHeight,
-          opacity: isDisabled ? 0.5 : pressed ? 0.8 : 1,
+          opacity: isDisabled ? 0.5 : 1,
         },
       ]}
     >
@@ -144,7 +173,6 @@ export function ActionButton({
 
 const styles = StyleSheet.create({
   button: {
-    borderRadius: borderRadius.lg,
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',

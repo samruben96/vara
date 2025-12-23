@@ -1,3 +1,9 @@
+/**
+ * ProgressRing Component - Story 2.9 Updated
+ *
+ * AC19: Gradient support from teal (#7DD3C0) to lavender (#B8A9D4)
+ */
+
 import React, { useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import Animated, {
@@ -7,12 +13,18 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
-import Svg, { Circle } from 'react-native-svg';
+import Svg, { Circle, Defs, LinearGradient, Stop } from 'react-native-svg';
 
 import { Text } from '@/components/ui/text';
-import { brandColors, lightColors } from '@/lib/design-system';
+import { brandColors, lightColors, statusColors } from '@/lib/design-system';
 
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
+
+// Story 2.9: Gradient colors for scanning state (AC19)
+const GRADIENT_COLORS = {
+  start: brandColors.teal, // #7DD3C0
+  end: brandColors.lavenderGradient, // #B8A9D4
+};
 
 export interface ProgressRingProps {
   progress: number;
@@ -21,6 +33,8 @@ export interface ProgressRingProps {
   showPercentage?: boolean;
   color?: string;
   backgroundColor?: string;
+  useGradient?: boolean; // AC19: Enable gradient for scanning state
+  testID?: string;
 }
 
 const DEFAULT_SIZE = 80;
@@ -54,8 +68,10 @@ export function ProgressRing({
   size = DEFAULT_SIZE,
   strokeWidth = DEFAULT_STROKE_WIDTH,
   showPercentage = true,
-  color = brandColors.mint,
+  color = statusColors.protected, // Updated to sage green
   backgroundColor = lightColors.border.primary,
+  useGradient = false, // AC19: Gradient mode for scanning
+  testID,
 }: ProgressRingProps) {
   const clampedProgress = Math.min(100, Math.max(0, progress));
   const radius = (size - strokeWidth) / 2;
@@ -74,8 +90,18 @@ export function ProgressRing({
         max: 100,
         now: Math.round(clampedProgress),
       }}
+      testID={testID}
     >
       <Svg width={size} height={size}>
+        {/* AC19: Gradient definition for scanning state */}
+        {useGradient && (
+          <Defs>
+            <LinearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <Stop offset="0%" stopColor={GRADIENT_COLORS.start} />
+              <Stop offset="100%" stopColor={GRADIENT_COLORS.end} />
+            </LinearGradient>
+          </Defs>
+        )}
         <Circle
           cx={center}
           cy={center}
@@ -88,7 +114,7 @@ export function ProgressRing({
           cx={center}
           cy={center}
           r={radius}
-          stroke={color}
+          stroke={useGradient ? 'url(#progressGradient)' : color}
           strokeWidth={strokeWidth}
           fill="none"
           strokeLinecap="round"

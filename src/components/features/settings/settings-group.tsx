@@ -1,8 +1,20 @@
+/**
+ * SettingsGroup Component - Story 2.9 Updated
+ *
+ * Groups related settings rows with an optional section header.
+ * Uses updated design tokens: 20px card radius, soft shadows, sectionHeader typography.
+ */
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { Text } from '@/components/ui/text';
-import { borderRadius, lightColors, spacing } from '@/lib/design-system';
+import {
+  cardShadows,
+  layout,
+  lightColors,
+  spacing,
+  textStyles,
+} from '@/lib/design-system';
 
 export interface SettingsGroupProps {
   title?: string;
@@ -27,17 +39,17 @@ const styles = StyleSheet.create({
     marginBottom: spacing.lg,
   },
   title: {
-    fontSize: 12,
+    // Story 2.9: Updated to match sectionHeader typography
+    fontSize: textStyles.sectionHeader.fontSize, // 18px per AC28
     fontWeight: '600',
-    color: lightColors.text.tertiary,
-    textTransform: 'uppercase',
-    letterSpacing: 0.5,
+    color: lightColors.text.primary, // Primary text color for better visibility
     marginBottom: spacing.sm,
     marginLeft: spacing.xs,
   },
   content: {
     backgroundColor: lightColors.background.secondary,
-    borderRadius: borderRadius.lg,
+    borderRadius: layout.cardRadius, // Story 2.9: AC16 20px radius
     overflow: 'hidden',
+    ...cardShadows.soft, // Story 2.9: AC15 soft shadows
   },
 });

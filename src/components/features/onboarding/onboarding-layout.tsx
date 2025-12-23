@@ -1,3 +1,9 @@
+/**
+ * OnboardingLayout Component - Story 2.9 Updated
+ *
+ * AC32: Updated styling with warm cream background, coral CTAs
+ */
+
 import React, { type ReactNode } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import {
@@ -6,7 +12,7 @@ import {
 } from 'react-native-safe-area-context';
 
 import { Button, Text } from '@/components/ui';
-import { brandColors, lightColors, spacing } from '@/lib/design-system';
+import { ctaColors, lightColors, spacing, textColors } from '@/lib/design-system';
 
 import { OnboardingProgress } from './onboarding-progress';
 
@@ -132,7 +138,7 @@ const styles = StyleSheet.create({
   skipLink: {
     fontFamily: 'PlusJakartaSans-Medium',
     fontSize: 14,
-    color: brandColors.mint,
+    color: textColors.mutedGray, // Updated from mint to muted gray (AC32)
   },
   nextButton: {
     marginBottom: spacing.sm,

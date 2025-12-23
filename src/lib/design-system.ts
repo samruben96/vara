@@ -23,12 +23,14 @@ export type {
 export {
   brandColors,
   colors,
+  ctaColors,
   darkColors,
   getSemanticColors,
   lightColors,
   semanticColors,
   statusColors,
   tailwindColors,
+  textColors,
 } from './colors';
 
 // === TYPOGRAPHY EXPORTS ===
@@ -44,6 +46,7 @@ export {
   fontWeights,
   letterSpacing,
   lineHeights,
+  textStyles,
   typeScale,
   typography,
 } from './typography';

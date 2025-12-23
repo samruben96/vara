@@ -7,22 +7,24 @@
 import { statusColors } from './colors';
 
 // === GLOW EFFECT DEFINITIONS ===
+// Story 2.9: Reduced glow spread for cleaner appearance
 export const glowEffects = {
   protected: {
-    inner: { spread: 40, opacity: 0.5, color: statusColors.protected },
-    outer: { spread: 80, opacity: 0.3, color: statusColors.protected },
+    inner: { spread: 24, opacity: 0.4, color: statusColors.protected },
+    outer: { spread: 48, opacity: 0.2, color: statusColors.protected },
   },
   attention: {
-    inner: { spread: 40, opacity: 0.5, color: statusColors.attention },
-    outer: { spread: 80, opacity: 0.3, color: statusColors.attention },
+    inner: { spread: 24, opacity: 0.4, color: statusColors.attention },
+    outer: { spread: 48, opacity: 0.2, color: statusColors.attention },
   },
   critical: {
-    inner: { spread: 40, opacity: 0.5, color: statusColors.critical },
-    outer: { spread: 80, opacity: 0.3, color: statusColors.critical },
+    inner: { spread: 24, opacity: 0.4, color: statusColors.critical },
+    outer: { spread: 48, opacity: 0.2, color: statusColors.critical },
   },
 } as const;
 
 // === CARD ELEVATION SHADOWS ===
+// Story 2.9: Added soft and subtle variants (AC15)
 export const cardShadows = {
   none: {
     shadowColor: 'transparent',
@@ -30,6 +32,22 @@ export const cardShadows = {
     shadowOpacity: 0,
     shadowRadius: 0,
     elevation: 0,
+  },
+  // Story 2.9: Subtle shadow for minimal elevation
+  subtle: {
+    shadowColor: '#000000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.03, // Very subtle
+    shadowRadius: 8,
+    elevation: 1,
+  },
+  // Story 2.9: Soft shadow for cards (AC15 - opacity 0.05-0.08)
+  soft: {
+    shadowColor: '#000000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.05, // Softer than before
+    shadowRadius: 16,
+    elevation: 2,
   },
   sm: {
     shadowColor: '#000000',

@@ -266,14 +266,28 @@ ALL external API calls (HIBP, image search, deepfake, etc.) go through Inngest, 
 ## Design System Colors
 
 ```typescript
-// Brand colors (from UX Design Specification)
+// Brand colors (Story 2.9 - Modern minimalist design)
 const colors = {
-  cream: '#FEFAF1',      // Light backgrounds, text on dark
-  lavender: '#D7CAE6',   // Secondary accents, soft highlights
-  mint: '#B1EFE3',       // Protection status, success states
-  coral: '#FFAB91',      // Attention states, soft alerts
-  charcoal: '#1E1E1E',   // Dark backgrounds, primary text
-  red: '#E57373',        // Critical/Error status
+  // Backgrounds
+  warmCream: '#FBF7F4',    // Primary background (warmer than cream)
+  cream: '#FEFAF1',        // Legacy, text on dark
+  sageTint: '#F5FAF7',     // Protection score card background
+
+  // Brand
+  darkTeal: '#2D4F4F',     // Logo, brand elements
+
+  // CTAs
+  coral: '#E8A87C',        // Primary buttons (updated)
+  coralDark: '#D4956D',    // Pressed state
+
+  // Status
+  sageGreen: '#A8D5BA',    // Success/protected (replaces mint)
+  lavender: '#D7CAE6',     // Secondary accents
+  red: '#E57373',          // Critical/Error status
+
+  // Text
+  charcoal: '#1E1E1E',     // Primary text
+  mutedGray: '#8A8A8A',    // Tertiary text
 };
 
 // Usage: import { getSemanticColors } from '@/lib/design-system';

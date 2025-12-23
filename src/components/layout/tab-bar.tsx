@@ -7,12 +7,12 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Text } from '@/components/ui';
 import { Alerts, Home, Monitor, Settings } from '@/components/ui/icons';
 import {
-  brandColors,
   fontFamilies,
   fontSizes,
   layout,
   lightColors,
   spacing,
+  statusColors,
 } from '@/lib/design-system';
 
 const TAB_ICONS = {
@@ -61,8 +61,9 @@ export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
         };
 
         const Icon = TAB_ICONS[route.name as TabName];
+        // Story 2.9: Use sage green for active tab, dark gray for inactive
         const iconColor = isFocused
-          ? brandColors.mint
+          ? statusColors.protected
           : lightColors.text.secondary;
 
         return (

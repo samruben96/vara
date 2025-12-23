@@ -1,9 +1,15 @@
+/**
+ * FirstScanContent Component - Story 2.9 Updated
+ *
+ * AC33: Scanning screen with gradient progress ring and scan status text
+ */
+
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { Text } from '@/components/ui';
 import { ShieldScan } from '@/components/ui/icons';
-import { brandColors, lightColors, spacing } from '@/lib/design-system';
+import { brandColors, layout, lightColors, spacing, statusColors } from '@/lib/design-system';
 
 const SCAN_ITEMS = [
   { label: 'Your photos', description: 'Facial recognition across the web' },
@@ -14,9 +20,9 @@ const SCAN_ITEMS = [
 export function FirstScanContent() {
   return (
     <View style={styles.container}>
-      {/* Scan icon */}
+      {/* Scan icon - AC33: Updated to sage green */}
       <View testID="scan-icon" style={styles.iconContainer}>
-        <ShieldScan color={brandColors.mint} width={80} height={80} />
+        <ShieldScan color={statusColors.protected} width={80} height={80} />
       </View>
 
       {/* Scan summary */}
@@ -52,15 +58,15 @@ const styles = StyleSheet.create({
     width: 120,
     height: 120,
     borderRadius: 60,
-    backgroundColor: 'rgba(177, 239, 227, 0.15)',
+    backgroundColor: 'rgba(168, 213, 186, 0.15)', // AC33: Sage green tint
     alignItems: 'center',
     justifyContent: 'center',
   },
   summaryContainer: {
     width: '100%',
     backgroundColor: lightColors.background.secondary,
-    borderRadius: 16,
-    padding: spacing.lg,
+    borderRadius: layout.cardRadius, // AC16: Updated to 20px
+    padding: layout.cardPadding, // AC17: Updated to 24px
     marginBottom: spacing.lg,
   },
   summaryTitle: {
@@ -78,7 +84,7 @@ const styles = StyleSheet.create({
     width: 6,
     height: 6,
     borderRadius: 3,
-    backgroundColor: brandColors.mint,
+    backgroundColor: statusColors.protected, // AC33: Sage green
     marginTop: 6,
     marginRight: spacing.sm,
   },

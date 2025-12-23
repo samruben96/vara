@@ -16,15 +16,19 @@ export const spacing = {
 } as const;
 
 // === LAYOUT CONSTANTS ===
+// Story 2.9: Updated card padding and radius (AC16, AC17)
 export const layout = {
-  screenMargin: 24,
-  cardPadding: 20,
-  cardRadius: 16,
+  screenMargin: 24, // AC25: Generous horizontal margins
+  cardPadding: 24, // AC17: Increased from 20 to 24 for breathing room
+  cardRadius: 20, // AC16: Increased from 16 to 20 for softer appearance
+  cardRadiusLarge: 24, // AC16: Extra soft corners for larger cards
   gutterWidth: 16,
   headerHeight: 56,
   tabBarHeight: 80,
   buttonHeight: 48,
   inputHeight: 48,
+  itemSpacing: 20, // AC26: Vertical spacing between list items (16-20px)
+  sectionSpacing: 16, // AC28: Spacing from section headers to content
 } as const;
 
 // === BORDER RADIUS ===

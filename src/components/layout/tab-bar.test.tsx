@@ -85,15 +85,16 @@ describe('TabBar', () => {
     expect(screen.getByText('Settings')).toBeTruthy();
   });
 
-  it('highlights active tab with mint color', () => {
+  it('highlights active tab with sage green color', () => {
+    // Story 2.9: Updated active tab color to sage green (#A8D5BA)
     render(<TabBar {...createMockProps(0)} />);
     const homeLabel = screen.getByText('Home');
     expect(homeLabel.props.style).toEqual(
-      expect.objectContaining({ color: '#B1EFE3' })
+      expect.objectContaining({ color: '#A8D5BA' }) // Sage green (updated)
     );
     const monitorLabel = screen.getByText('Monitor');
     expect(monitorLabel.props.style).toEqual(
-      expect.objectContaining({ color: '#666666' })
+      expect.objectContaining({ color: '#4A4A4A' }) // Dark gray (updated)
     );
   });
 

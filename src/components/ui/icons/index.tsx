@@ -1,5 +1,6 @@
 export * from './alerts';
 export * from './arrow-right';
+export * from './bullet'; // Story 2.9: Colored bullet for results list
 export * from './camera';
 export * from './caret-down';
 export * from './checkmark-circle';
@@ -18,7 +19,9 @@ export * from './plus';
 export * from './rate';
 export * from './settings';
 export * from './share';
+export * from './shield'; // Story 2.9: Brand shield icon
 export * from './shield-scan';
+export * from './sparkle'; // Story 2.9: Sparkle icon for feature lists
 export * from './style';
 export * from './support';
 export * from './tiktok';

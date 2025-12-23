@@ -886,6 +886,61 @@ So that **I can get help and choose my protection level**.
 
 ---
 
+### Story 2.9: Visual Design Polish - Modern Minimalist Refresh
+
+As a **user**,
+I want **the app to have a modern, minimalist visual design matching the brand mockups**,
+So that **the experience feels calm, protective, and premium**.
+
+**Acceptance Criteria:**
+
+**Color System:**
+
+**Given** the app loads
+**When** I view any screen
+**Then** the background color is a warm cream/beige (#FBF7F4)
+**And** primary action buttons use coral/salmon color (#E8A87C) with pill shape
+**And** Vara logo/brand elements use dark teal color (#2D4F4F)
+**And** success/protected states use softer sage green (#A8D5BA)
+**And** secondary text uses muted gray (#8A8A8A)
+
+**Typography & Spacing:**
+
+**Given** I view screen content
+**When** text is displayed
+**Then** screen titles use SemiBold weight (600)
+**And** body text has increased line-height (1.6)
+**And** the protection score displays large (52px) in sage green color
+**And** horizontal margins are generous (24-28px)
+**And** cards have increased padding (24px) and border-radius (20-24px)
+
+**Components:**
+
+**Given** I view the home screen
+**When** content loads
+**Then** I see a protection score card with sage-tinted background
+**And** I see a feature status list with sparkle icons
+**And** "Run Scan" link initiates comprehensive social media and web scan
+**And** notification banner is tappable and dismissible
+**And** scanning progress shows gradient ring (teal to lavender)
+
+**New Icons:**
+
+**Given** the app displays icons
+**When** I see feature items or status
+**Then** SparkleIcon component exists with gradient option
+**And** ShieldIcon component exists for brand elements
+**And** BulletIcon component exists for result lists
+
+**Shared Requirements:**
+
+**And** all color changes maintain WCAG 2.1 AA contrast
+**And** all touch targets remain minimum 44x44pt
+**And** all screens work correctly on iOS and Android
+**And** design token changes are centralized
+
+---
+
 ## Epic 3: User Authentication & Account
 
 **Goal:** Implement complete authentication flow including registration, login, social auth, biometrics, and account management.

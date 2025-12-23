@@ -2,6 +2,7 @@
  * Design System Token Tests
  *
  * Validates design token structure, types, and helper functions.
+ * Updated: Story 2.9 - Modern minimalist visual refresh
  */
 
 import {
@@ -34,8 +35,9 @@ describe('Design System - Colors', () => {
 
   describe('statusColors', () => {
     it('should have protected, attention, and critical colors', () => {
-      expect(statusColors).toHaveProperty('protected', '#B1EFE3');
-      expect(statusColors).toHaveProperty('attention', '#FFAB91');
+      // Story 2.9: Updated to sage green and coral
+      expect(statusColors).toHaveProperty('protected', '#A8D5BA'); // Sage green
+      expect(statusColors).toHaveProperty('attention', '#E8A87C'); // Coral
       expect(statusColors).toHaveProperty('critical', '#E57373');
     });
   });
@@ -45,7 +47,7 @@ describe('Design System - Colors', () => {
       expect(tailwindColors).toHaveProperty('cream');
       expect(tailwindColors).toHaveProperty('lavender');
       expect(tailwindColors).toHaveProperty('mint');
-      expect(tailwindColors).toHaveProperty('coral');
+      // Story 2.9: Note that coral is now in cta namespace, not direct
       // charcoal is NOT direct - use bg-charcoal-900 or bg-vara-charcoal
     });
 
@@ -65,7 +67,8 @@ describe('Design System - Colors', () => {
     it('should return light colors for light scheme', () => {
       const result = getSemanticColors('light');
       expect(result).toBe(lightColors);
-      expect(result.background.primary).toBe('#FEFAF1');
+      // Story 2.9: Updated to warm cream background
+      expect(result.background.primary).toBe('#FBF7F4');
     });
 
     it('should return dark colors for dark scheme', () => {
@@ -168,8 +171,9 @@ describe('Design System - Spacing', () => {
   describe('layout constants', () => {
     it('should have required layout values', () => {
       expect(layout).toHaveProperty('screenMargin', 24);
-      expect(layout).toHaveProperty('cardPadding', 20);
-      expect(layout).toHaveProperty('cardRadius', 16);
+      // Story 2.9: Updated card padding to 24px, radius to 20px
+      expect(layout).toHaveProperty('cardPadding', 24);
+      expect(layout).toHaveProperty('cardRadius', 20);
     });
   });
 });

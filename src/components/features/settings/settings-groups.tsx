@@ -1,7 +1,13 @@
+/**
+ * SettingsGroups Component - Story 2.9 Updated
+ *
+ * Collection of settings group sections (Account, Notifications, etc.).
+ * Uses updated design tokens: darkTeal for icons.
+ */
 import React from 'react';
 
 import { Notifications, Settings, Support, User } from '@/components/ui/icons';
-import { lightColors } from '@/lib/design-system';
+import { brandColors } from '@/lib/design-system';
 
 import { SettingsGroup } from './settings-group';
 import { SettingsRow } from './settings-row';
@@ -19,12 +25,12 @@ export function AccountSettingsGroup({
   return (
     <SettingsGroup title="Account">
       <SettingsRow
-        icon={<User color={lightColors.text.secondary} />}
+        icon={<User color={brandColors.darkTeal} />}
         label="Profile"
         onPress={() => onNavigate('Profile')}
       />
       <SettingsRow
-        icon={<Settings color={lightColors.text.secondary} />}
+        icon={<Settings color={brandColors.darkTeal} />}
         label="Security"
         onPress={() => onNavigate('Security')}
       />
@@ -40,7 +46,7 @@ export function NotificationsSettingsGroup({
   return (
     <SettingsGroup title="Notifications">
       <SettingsRow
-        icon={<Notifications color={lightColors.text.secondary} />}
+        icon={<Notifications color={brandColors.darkTeal} />}
         label="Push Notifications"
         onPress={() => onNavigate('Push Notifications')}
       />
@@ -99,7 +105,7 @@ export function SupportSettingsGroup({
   return (
     <SettingsGroup title="Support">
       <SettingsRow
-        icon={<Support color={lightColors.text.secondary} />}
+        icon={<Support color={brandColors.darkTeal} />}
         label="Help Center"
         onPress={() => onNavigate('Help Center')}
       />

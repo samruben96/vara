@@ -1,10 +1,21 @@
+/**
+ * SettingsRow Component - Story 2.9 Updated
+ *
+ * Individual setting row with optional icon, value display, and navigation.
+ * Uses updated design tokens: statusColors.critical for danger actions.
+ */
 import * as Haptics from 'expo-haptics';
 import React, { useCallback } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 
 import { ChevronRight } from '@/components/ui/icons';
 import { Text } from '@/components/ui/text';
-import { lightColors, spacing } from '@/lib/design-system';
+import {
+  lightColors,
+  spacing,
+  statusColors,
+  textStyles,
+} from '@/lib/design-system';
 
 export interface SettingsRowProps {
   icon?: React.ReactNode;
@@ -32,7 +43,8 @@ export function SettingsRow({
     }
   }, [onPress]);
 
-  const labelColor = danger ? '#E57373' : lightColors.text.primary;
+  // Story 2.9: Use statusColors.critical for danger actions
+  const labelColor = danger ? statusColors.critical : lightColors.text.primary;
   const accessibilityLabel = value
     ? `${label}, current value: ${value}`
     : label;
@@ -86,6 +98,7 @@ const styles = StyleSheet.create({
   },
   pressed: {
     backgroundColor: lightColors.border.primary,
+    opacity: 0.9,
   },
   content: {
     flexDirection: 'row',
@@ -97,11 +110,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   label: {
-    fontSize: 16,
+    fontSize: textStyles.bodyText.fontSize, // Story 2.9: Body text (15px)
     flex: 1,
   },
   value: {
-    fontSize: 14,
+    fontSize: textStyles.caption.fontSize, // Story 2.9: Caption (13px)
     color: lightColors.text.tertiary,
     marginRight: spacing.xs,
   },

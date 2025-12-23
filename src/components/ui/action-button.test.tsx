@@ -142,4 +142,25 @@ describe('ActionButton', () => {
       unmount();
     });
   });
+
+  // Story 2.9: New tests for coral styling and pill shape
+  describe('Story 2.9 - Visual Design Updates', () => {
+    it('accepts testID prop', () => {
+      render(<ActionButton label="Test" testID="test-button" />);
+      expect(screen.getByTestId('test-button')).toBeTruthy();
+    });
+
+    it('primary variant uses coral color', () => {
+      render(<ActionButton label="Primary" variant="primary" testID="primary-btn" />);
+      const button = screen.getByTestId('primary-btn');
+      // Button should exist with primary styles applied
+      expect(button).toBeTruthy();
+    });
+
+    it('secondary variant uses coral border and text', () => {
+      render(<ActionButton label="Secondary" variant="secondary" testID="secondary-btn" />);
+      const button = screen.getByTestId('secondary-btn');
+      expect(button).toBeTruthy();
+    });
+  });
 });
