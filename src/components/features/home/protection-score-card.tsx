@@ -58,7 +58,8 @@ const styles = StyleSheet.create({
   score: {
     fontSize: textStyles.scoreDisplay.fontSize, // AC9: 52px
     fontWeight: textStyles.scoreDisplay.fontWeight,
-    lineHeight: textStyles.scoreDisplay.fontSize * textStyles.scoreDisplay.lineHeight,
+    lineHeight:
+      textStyles.scoreDisplay.fontSize * textStyles.scoreDisplay.lineHeight,
     color: statusColors.protected, // AC34: Sage green color
     fontFamily: textStyles.scoreDisplay.fontFamily,
   },

@@ -85,7 +85,9 @@ describe('TextLink', () => {
   });
 
   it('uses muted gray color by default (AC14)', () => {
-    render(<TextLink label="Dismiss" onPress={() => {}} testID="default-link" />);
+    render(
+      <TextLink label="Dismiss" onPress={() => {}} testID="default-link" />
+    );
     // Default color should be muted gray
     expect(screen.getByText('Dismiss')).toBeTruthy();
   });

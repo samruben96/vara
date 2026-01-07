@@ -75,6 +75,15 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     'expo-router',
     ['app-icon-badge', appIconBadgeConfig],
     ['react-native-edge-to-edge'],
+    [
+      'expo-image-picker',
+      {
+        photosPermission:
+          'Vara needs access to your photos to scan for image misuse.',
+        cameraPermission:
+          'Vara needs access to your camera to take photos for scanning.',
+      },
+    ],
   ],
   extra: {
     ...ClientEnv,

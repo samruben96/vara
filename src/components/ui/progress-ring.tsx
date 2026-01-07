@@ -96,7 +96,13 @@ export function ProgressRing({
         {/* AC19: Gradient definition for scanning state */}
         {useGradient && (
           <Defs>
-            <LinearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <LinearGradient
+              id="progressGradient"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
               <Stop offset="0%" stopColor={GRADIENT_COLORS.start} />
               <Stop offset="100%" stopColor={GRADIENT_COLORS.end} />
             </LinearGradient>

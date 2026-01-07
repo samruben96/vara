@@ -151,14 +151,22 @@ describe('ActionButton', () => {
     });
 
     it('primary variant uses coral color', () => {
-      render(<ActionButton label="Primary" variant="primary" testID="primary-btn" />);
+      render(
+        <ActionButton label="Primary" variant="primary" testID="primary-btn" />
+      );
       const button = screen.getByTestId('primary-btn');
       // Button should exist with primary styles applied
       expect(button).toBeTruthy();
     });
 
     it('secondary variant uses coral border and text', () => {
-      render(<ActionButton label="Secondary" variant="secondary" testID="secondary-btn" />);
+      render(
+        <ActionButton
+          label="Secondary"
+          variant="secondary"
+          testID="secondary-btn"
+        />
+      );
       const button = screen.getByTestId('secondary-btn');
       expect(button).toBeTruthy();
     });

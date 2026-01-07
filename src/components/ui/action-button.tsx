@@ -13,7 +13,12 @@ import React, { useCallback } from 'react';
 import { ActivityIndicator, Pressable, StyleSheet, View } from 'react-native';
 
 import { Text } from '@/components/ui/text';
-import { ctaColors, lightColors, spacing, textColors } from '@/lib/design-system';
+import {
+  ctaColors,
+  lightColors,
+  spacing,
+  textColors,
+} from '@/lib/design-system';
 
 export type ActionButtonVariant = 'primary' | 'secondary' | 'danger' | 'ghost';
 export type ActionButtonSize = 'sm' | 'md' | 'lg';

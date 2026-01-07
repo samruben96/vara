@@ -17,20 +17,36 @@ export const Gesture = {
   }),
 };
 
-export const GestureDetector = ({ children }: { children: React.ReactNode }) => {
+export const GestureDetector = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
   return React.createElement(View, null, children);
 };
 
-export const GestureHandlerRootView = ({ children }: { children: React.ReactNode }) => {
+export const GestureHandlerRootView = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
   return React.createElement(View, null, children);
 };
 
 // Export other commonly used components
-export const PanGestureHandler = ({ children }: { children: React.ReactNode }) => {
+export const PanGestureHandler = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
   return React.createElement(View, null, children);
 };
 
-export const TapGestureHandler = ({ children }: { children: React.ReactNode }) => {
+export const TapGestureHandler = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
   return React.createElement(View, null, children);
 };
 

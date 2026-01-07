@@ -18,7 +18,12 @@ import {
   WarningTriangle,
 } from '@/components/ui/icons';
 import { Text } from '@/components/ui/text';
-import { brandColors, glowEffects, lightColors, statusColors } from '@/lib/design-system';
+import {
+  brandColors,
+  glowEffects,
+  lightColors,
+  statusColors,
+} from '@/lib/design-system';
 
 export type StatusType = 'protected' | 'attention' | 'critical' | 'scanning';
 export type StatusCircleSize = 'sm' | 'md' | 'lg';

@@ -7,11 +7,7 @@
 
 import * as Haptics from 'expo-haptics';
 import React, { useCallback, useState } from 'react';
-import {
-  Pressable,
-  StyleSheet,
-  View,
-} from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, {
   FadeOut,
@@ -63,9 +59,12 @@ export function NotificationBanner({
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
     setVisible(false);
     // Small delay to allow animation
-    setTimeout(() => {
-      onDismiss();
-    }, reducedMotion ? 0 : 300);
+    setTimeout(
+      () => {
+        onDismiss();
+      },
+      reducedMotion ? 0 : 300
+    );
   }, [onDismiss, reducedMotion]);
 
   // AC36: Swipe gesture for dismissal
@@ -109,10 +108,7 @@ export function NotificationBanner({
           accessibilityLabel={`${title}. ${description || ''} Tap to view details. Swipe right to dismiss.`}
           accessibilityRole="button"
           accessibilityHint="Double tap to view notification details, or swipe right to dismiss"
-          style={({ pressed }) => [
-            styles.container,
-            pressed && styles.pressed,
-          ]}
+          style={({ pressed }) => [styles.container, pressed && styles.pressed]}
         >
           <View style={styles.content}>
             <View style={styles.indicator} />
@@ -122,7 +118,11 @@ export function NotificationBanner({
                 <Text style={styles.description}>{description}</Text>
               )}
             </View>
-            <ChevronRight width={20} height={20} color={lightColors.text.tertiary} />
+            <ChevronRight
+              width={20}
+              height={20}
+              color={lightColors.text.tertiary}
+            />
           </View>
           <Pressable
             onPress={handleDismiss}

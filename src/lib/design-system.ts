@@ -25,6 +25,7 @@ export {
   colors,
   ctaColors,
   darkColors,
+  feedbackColors,
   getSemanticColors,
   lightColors,
   semanticColors,

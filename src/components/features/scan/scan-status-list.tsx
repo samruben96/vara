@@ -43,7 +43,10 @@ export function ScanStatusList({
       {categories.map((category) => (
         <Text
           key={category.id}
-          style={[styles.categoryText, { color: STATUS_COLORS[category.status] }]}
+          style={[
+            styles.categoryText,
+            { color: STATUS_COLORS[category.status] },
+          ]}
         >
           {category.label}
         </Text>

@@ -5,14 +5,20 @@
  * AC29: "Your Digital Safety Today" design with protection score, feature list, notification banner
  */
 
+import { useRouter } from 'expo-router';
 import React, { useCallback, useState } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
-import { useRouter } from 'expo-router';
 
 import { ShieldIcon } from '@/components/ui/icons';
 import { StatusCircle } from '@/components/ui/status-circle';
 import { Text } from '@/components/ui/text';
-import { layout, lightColors, spacing, brandColors, textStyles } from '@/lib/design-system';
+import {
+  brandColors,
+  layout,
+  lightColors,
+  spacing,
+  textStyles,
+} from '@/lib/design-system';
 
 import { FeatureStatusList } from './feature-status-list';
 import { NotificationBanner } from './notification-banner';
@@ -40,9 +46,9 @@ export function HomeContent({
   const router = useRouter();
   const [showNotification, setShowNotification] = useState(hasNotification);
 
-  // AC35: Run Scan navigates to scan progress screen
+  // AC35: Run Scan navigates to scan screen
   const handleRunScan = useCallback(() => {
-    router.push('/(app)/scan-progress' as any);
+    router.push('/(app)/scan');
   }, [router]);
 
   const handleNotificationPress = useCallback(() => {

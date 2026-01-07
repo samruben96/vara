@@ -1,6 +1,5 @@
-import React from 'react';
-
 import { fireEvent, render, screen } from '@testing-library/react-native';
+import React from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { ImageProtectionDetail } from './image-protection-detail';
@@ -43,7 +42,12 @@ describe('ImageProtectionDetail', () => {
   });
 
   it('renders custom threat message', () => {
-    render(<ImageProtectionDetail threatMessage="3 potential matches found" hasThreats />);
+    render(
+      <ImageProtectionDetail
+        threatMessage="3 potential matches found"
+        hasThreats
+      />
+    );
     expect(screen.getByText('3 potential matches found')).toBeTruthy();
   });
 
@@ -71,8 +75,18 @@ describe('ImageProtectionDetail', () => {
 
   it('renders custom results', () => {
     const customResults = [
-      { id: '1', label: 'Custom result 1', count: 5, type: 'suspicious' as const },
-      { id: '2', label: 'Custom result 2', count: 3, type: 'harmless' as const },
+      {
+        id: '1',
+        label: 'Custom result 1',
+        count: 5,
+        type: 'suspicious' as const,
+      },
+      {
+        id: '2',
+        label: 'Custom result 2',
+        count: 3,
+        type: 'harmless' as const,
+      },
     ];
     render(<ImageProtectionDetail results={customResults} />);
     // Text is rendered with counts in nested Text components

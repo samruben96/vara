@@ -215,5 +215,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   timestamp: { fontSize: 12, color: lightColors.text.tertiary },
-  resolvedLabel: { fontSize: 12, color: statusColors.protected, fontWeight: '500' },
+  resolvedLabel: {
+    fontSize: 12,
+    color: statusColors.protected,
+    fontWeight: '500',
+  },
 });

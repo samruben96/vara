@@ -4,7 +4,7 @@
 
 import React from 'react';
 
-import { render, screen } from '@/lib/test-utils';
+import { render } from '@/lib/test-utils';
 
 import { SparkleIcon } from './sparkle';
 

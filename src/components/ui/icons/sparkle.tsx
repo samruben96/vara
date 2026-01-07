@@ -39,16 +39,19 @@ export function SparkleIcon({
     <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       {gradient && (
         <Defs>
-          <LinearGradient id="sparkleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <LinearGradient
+            id="sparkleGradient"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="100%"
+          >
             <Stop offset="0%" stopColor={brandColors.teal} />
             <Stop offset="100%" stopColor={ctaColors.coral} />
           </LinearGradient>
         </Defs>
       )}
-      <Path
-        d={starPath}
-        fill={gradient ? 'url(#sparkleGradient)' : color}
-      />
+      <Path d={starPath} fill={gradient ? 'url(#sparkleGradient)' : color} />
     </Svg>
   );
 }

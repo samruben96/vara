@@ -16,7 +16,6 @@ import Animated, {
 
 import { Text } from '@/components/ui/text';
 import {
-  borderRadius,
   ctaColors,
   layout,
   lightColors,
@@ -43,7 +42,11 @@ interface RadioOptionItemProps {
   onPress: () => void;
 }
 
-function RadioOptionItem({ option, isSelected, onPress }: RadioOptionItemProps) {
+function RadioOptionItem({
+  option,
+  isSelected,
+  onPress,
+}: RadioOptionItemProps) {
   const scale = useSharedValue(1);
 
   const handlePress = useCallback(() => {
@@ -70,13 +73,20 @@ function RadioOptionItem({ option, isSelected, onPress }: RadioOptionItemProps) 
         ]}
       >
         {/* Radio Circle */}
-        <View style={[styles.radioOuter, isSelected && styles.radioOuterSelected]}>
+        <View
+          style={[styles.radioOuter, isSelected && styles.radioOuterSelected]}
+        >
           {isSelected && <View style={styles.radioInner} />}
         </View>
 
         {/* Content */}
         <View style={styles.optionContent}>
-          <Text style={[styles.optionLabel, isSelected && styles.optionLabelSelected]}>
+          <Text
+            style={[
+              styles.optionLabel,
+              isSelected && styles.optionLabelSelected,
+            ]}
+          >
             {option.label}
           </Text>
           {option.description && (

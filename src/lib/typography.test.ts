@@ -7,8 +7,8 @@
 import {
   fontSizes,
   lineHeights,
-  typeScale,
   textStyles,
+  typeScale,
   typography,
 } from './typography';
 

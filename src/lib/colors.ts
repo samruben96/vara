@@ -47,6 +47,26 @@ export const statusColors = {
   critical: '#E57373', // Red - Critical/Error
 } as const;
 
+// === FEEDBACK COLORS (for banners, alerts, notifications) ===
+export const feedbackColors = {
+  success: {
+    background: '#E8F5E9', // Light green background
+    text: '#2E7D32', // Dark green text
+  },
+  error: {
+    background: '#FFEBEE', // Light red background
+    text: '#C62828', // Dark red text
+  },
+  warning: {
+    background: '#FFF3E0', // Light orange background
+    text: '#E65100', // Dark orange text
+  },
+  info: {
+    background: '#E3F2FD', // Light blue background
+    text: '#1565C0', // Dark blue text
+  },
+} as const;
+
 // === SEMANTIC COLORS - LIGHT MODE ===
 export const lightColors = {
   background: {

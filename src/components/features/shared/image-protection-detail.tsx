@@ -71,7 +71,10 @@ export function ImageProtectionDetail({
   }, []);
 
   return (
-    <View style={[styles.container, { paddingTop: insets.top }]} testID={testID}>
+    <View
+      style={[styles.container, { paddingTop: insets.top }]}
+      testID={testID}
+    >
       <ScrollView
         style={styles.scrollView}
         contentContainerStyle={styles.scrollContent}
@@ -91,7 +94,9 @@ export function ImageProtectionDetail({
           <View style={styles.statusRow}>
             <CheckmarkCircle
               size={24}
-              color={hasThreats ? statusColors.attention : statusColors.protected}
+              color={
+                hasThreats ? statusColors.attention : statusColors.protected
+              }
             />
             <Text style={styles.statusText}>{threatMessage}</Text>
           </View>
@@ -104,7 +109,12 @@ export function ImageProtectionDetail({
       </ScrollView>
 
       {/* Fixed CTA at bottom */}
-      <View style={[styles.ctaContainer, { paddingBottom: insets.bottom + spacing.md }]}>
+      <View
+        style={[
+          styles.ctaContainer,
+          { paddingBottom: insets.bottom + spacing.md },
+        ]}
+      >
         <Pressable
           onPress={handleReviewMatches}
           style={({ pressed }) => [

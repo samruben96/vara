@@ -63,6 +63,13 @@ export default function TabLayout() {
           tabBarAccessibilityLabel: 'Settings tab',
         }}
       />
+      {/* Scan screens - hidden from tab bar */}
+      <Tabs.Screen
+        name="scan"
+        options={{
+          href: null, // Hide from tab bar
+        }}
+      />
     </Tabs>
   );
 }

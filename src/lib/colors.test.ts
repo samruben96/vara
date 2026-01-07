@@ -7,15 +7,14 @@
 
 import {
   brandColors,
-  ctaColors,
-  textColors,
-  statusColors,
-  lightColors,
-  darkColors,
-  semanticColors,
-  tailwindColors,
-  getSemanticColors,
   colors,
+  ctaColors,
+  darkColors,
+  getSemanticColors,
+  lightColors,
+  statusColors,
+  tailwindColors,
+  textColors,
 } from './colors';
 
 describe('Color System - Story 2.9 Updates', () => {

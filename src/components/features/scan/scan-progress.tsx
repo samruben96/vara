@@ -12,7 +12,7 @@ import { ProgressRing } from '@/components/ui/progress-ring';
 import { Text } from '@/components/ui/text';
 import { layout, lightColors, spacing, textStyles } from '@/lib/design-system';
 
-import { ScanStatusList, type ScanCategory } from './scan-status-list';
+import { type ScanCategory, ScanStatusList } from './scan-status-list';
 
 export interface ScanProgressProps {
   progress: number;

@@ -9,7 +9,12 @@ import { StyleSheet, View } from 'react-native';
 
 import { Text } from '@/components/ui';
 import { ShieldScan } from '@/components/ui/icons';
-import { brandColors, layout, lightColors, spacing, statusColors } from '@/lib/design-system';
+import {
+  layout,
+  lightColors,
+  spacing,
+  statusColors,
+} from '@/lib/design-system';
 
 const SCAN_ITEMS = [
   { label: 'Your photos', description: 'Facial recognition across the web' },

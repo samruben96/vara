@@ -7,4 +7,5 @@
  */
 
 export * from './auth-store';
+export * from './scan-store';
 export * from './subscription-store';

@@ -10,7 +10,7 @@
 
 import React from 'react';
 
-import { fireEvent, render, screen } from '@/lib/test-utils';
+import { render, screen } from '@/lib/test-utils';
 
 import { HomeContent } from './home-content';
 
@@ -67,7 +67,12 @@ describe('HomeContent', () => {
   });
 
   it('renders notification banner when hasNotification is true (AC36)', () => {
-    render(<HomeContent hasNotification={true} notificationTitle="Test notification" />);
+    render(
+      <HomeContent
+        hasNotification={true}
+        notificationTitle="Test notification"
+      />
+    );
     expect(screen.getByText('Test notification')).toBeTruthy();
   });
 

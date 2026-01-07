@@ -12,7 +12,7 @@ import { StyleSheet, View } from 'react-native';
 
 import { BulletIcon } from '@/components/ui/icons';
 import { Text } from '@/components/ui/text';
-import { layout, lightColors, spacing } from '@/lib/design-system';
+import { lightColors, spacing } from '@/lib/design-system';
 
 export interface ResultItem {
   id: string;

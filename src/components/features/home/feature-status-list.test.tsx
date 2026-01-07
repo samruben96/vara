@@ -51,7 +51,11 @@ describe('FeatureStatusList', () => {
 
   it('renders custom features', () => {
     const customFeatures = [
-      { id: 'custom-1', name: 'Custom Feature', description: 'Custom description' },
+      {
+        id: 'custom-1',
+        name: 'Custom Feature',
+        description: 'Custom description',
+      },
     ];
     render(<FeatureStatusList features={customFeatures} />);
     expect(screen.getByText('Custom Feature')).toBeTruthy();

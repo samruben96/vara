@@ -12,7 +12,7 @@ import {
 } from 'react-native-safe-area-context';
 
 import { Button, Text } from '@/components/ui';
-import { ctaColors, lightColors, spacing, textColors } from '@/lib/design-system';
+import { lightColors, spacing, textColors } from '@/lib/design-system';
 
 import { OnboardingProgress } from './onboarding-progress';
 

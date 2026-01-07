@@ -37,6 +37,7 @@ export type SignupFormType = z.infer<typeof signupSchema>;
 
 export type SignupFormProps = {
   onSubmit?: SubmitHandler<Omit<SignupFormType, 'confirmPassword'>>;
+  isLoading?: boolean;
 };
 
 function SignupHeader() {
@@ -104,7 +105,10 @@ function FormFields({ control }: { control: Control<SignupFormType> }) {
   );
 }
 
-export function SignupForm({ onSubmit = () => {} }: SignupFormProps) {
+export function SignupForm({
+  onSubmit = () => {},
+  isLoading = false,
+}: SignupFormProps) {
   const router = useRouter();
   const { handleSubmit, control } = useForm<SignupFormType>({
     resolver: zodResolver(signupSchema),
@@ -132,6 +136,8 @@ export function SignupForm({ onSubmit = () => {} }: SignupFormProps) {
               testID="signup-button"
               label="Create Account"
               onPress={handleSubmit(handleFormSubmit)}
+              loading={isLoading}
+              disabled={isLoading}
               style={styles.submitButton}
             />
           </View>

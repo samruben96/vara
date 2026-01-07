@@ -13,6 +13,7 @@ export * from './home';
 export * from './instagram';
 export * from './language';
 export * from './loading-dots';
+export * from './mail'; // Story 3.1: Mail icon for verify email screen
 export * from './monitor';
 export * from './notifications';
 export * from './plus';

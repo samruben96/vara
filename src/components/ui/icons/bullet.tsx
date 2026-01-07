@@ -23,10 +23,7 @@ const BULLET_COLORS: Record<BulletColor, string> = {
   gray: textColors.mutedGray, // Neutral items
 };
 
-export function BulletIcon({
-  size = 8,
-  color = 'gray',
-}: BulletIconProps) {
+export function BulletIcon({ size = 8, color = 'gray' }: BulletIconProps) {
   return (
     <Svg width={size} height={size} viewBox="0 0 8 8" fill="none">
       <Circle cx="4" cy="4" r="4" fill={BULLET_COLORS[color]} />

@@ -32,7 +32,9 @@ describe('NotificationBanner', () => {
   });
 
   it('renders description when provided', () => {
-    render(<NotificationBanner {...defaultProps} description="Test description" />);
+    render(
+      <NotificationBanner {...defaultProps} description="Test description" />
+    );
     expect(screen.getByText('Test description')).toBeTruthy();
   });
 
@@ -52,7 +54,9 @@ describe('NotificationBanner', () => {
   });
 
   it('renders with testID', () => {
-    render(<NotificationBanner {...defaultProps} testID="notification-banner" />);
+    render(
+      <NotificationBanner {...defaultProps} testID="notification-banner" />
+    );
     expect(screen.getByTestId('notification-banner')).toBeTruthy();
   });
 
@@ -65,7 +69,9 @@ describe('NotificationBanner', () => {
       />
     );
     expect(
-      screen.getByLabelText('Alert. Check your results Tap to view details. Swipe right to dismiss.')
+      screen.getByLabelText(
+        'Alert. Check your results Tap to view details. Swipe right to dismiss.'
+      )
     ).toBeTruthy();
   });
 });
