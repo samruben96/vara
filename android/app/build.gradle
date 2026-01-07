@@ -87,13 +87,13 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace 'com.obytes.development'
+    namespace 'com.vara.app.development'
     defaultConfig {
-        applicationId 'com.obytes.development'
+        applicationId 'com.vara.app.development'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
-        versionName "8.0.0"
+        versionName "1.0.0"
     }
     signingConfigs {
         debug {

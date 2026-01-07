@@ -7,6 +7,7 @@
  * Note: No persistence - scan state is session-only.
  */
 import { create } from 'zustand';
+import { useShallow } from 'zustand/react/shallow';
 
 import type {
   ScanCategory,
@@ -108,15 +109,17 @@ export const useCapturedImage = () =>
   useScanStore((state) => state.capturedImage);
 
 /**
- * Action hooks
+ * Action hooks - using useShallow to prevent infinite re-renders
  */
 export const useScanActions = () =>
-  useScanStore((state) => ({
-    setCapturedImage: state.setCapturedImage,
-    setStatus: state.setStatus,
-    setResults: state.setResults,
-    setProgress: state.setProgress,
-    setError: state.setError,
-    updateCategoryStatus: state.updateCategoryStatus,
-    reset: state.reset,
-  }));
+  useScanStore(
+    useShallow((state) => ({
+      setCapturedImage: state.setCapturedImage,
+      setStatus: state.setStatus,
+      setResults: state.setResults,
+      setProgress: state.setProgress,
+      setError: state.setError,
+      updateCategoryStatus: state.updateCategoryStatus,
+      reset: state.reset,
+    }))
+  );

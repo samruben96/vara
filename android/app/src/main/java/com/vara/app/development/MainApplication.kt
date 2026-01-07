@@ -1,4 +1,4 @@
-package com.obytes.development
+package com.vara.app.development
 import com.facebook.react.common.assets.ReactFontManager
 
 import android.app.Application
